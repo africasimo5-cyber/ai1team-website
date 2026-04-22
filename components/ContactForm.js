@@ -26,10 +26,10 @@ const ContactForm = () => {
     // Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY with actual EmailJS keys
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_egfujc7",
+        "template_pavwp4m",
         formRef.current,
-        "YOUR_PUBLIC_KEY"
+        "2BIBgAVyIOcWD0LJt"
       )
       .then(
         (result) => {
@@ -69,7 +69,7 @@ const ContactForm = () => {
   return (
     <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 shadow-sm">
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-        
+
         {status === "error" && (
           <div className="bg-red-50 text-red-600 p-4 rounded-lg flex items-center gap-3 text-sm">
             <HiExclamationCircle className="text-lg shrink-0" />
@@ -159,11 +159,10 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={status === "loading"}
-          className={`w-full py-4 text-white font-bold rounded-lg transition-all shadow-md ${
-            status === "loading"
-              ? "bg-[#2E6DB4]/70 cursor-not-allowed"
-              : "bg-[#2E6DB4] hover:bg-[#1A3C6E] hover:shadow-lg hover:-translate-y-0.5"
-          }`}
+          className={`w-full py-4 text-white font-bold rounded-lg transition-all shadow-md ${status === "loading"
+            ? "bg-[#2E6DB4]/70 cursor-not-allowed"
+            : "bg-[#2E6DB4] hover:bg-[#1A3C6E] hover:shadow-lg hover:-translate-y-0.5"
+            }`}
         >
           {status === "loading" ? "Sending..." : "Send Message"}
         </button>
