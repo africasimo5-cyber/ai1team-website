@@ -1,21 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-
-const words = ["AI Marketing", "AI Automation",];
 
 const HeroSection = () => {
-  const [textIndex, setTextIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTextIndex((prev) => (prev + 1) % words.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       className="relative bg-cover bg-center bg-no-repeat min-h-[480px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-24 md:py-0"
@@ -32,19 +20,10 @@ const HeroSection = () => {
           <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight flex flex-col items-center text-white">
             <span className="mb-2">Grow Your Business With</span>
             <span className="drop-shadow-2xl">The Power of</span>
-            <div className="h-[60px] md:h-[90px] overflow-hidden flex items-center justify-center mt-2 relative w-full">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={textIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-blue-300 absolute"
-                >
-                  {words[textIndex]}
-                </motion.span>
-              </AnimatePresence>
+            <div className="h-auto flex items-center justify-center mt-2 relative w-full">
+              <span className="text-blue-300">
+                AI Automation
+              </span>
             </div>
           </div>
           <p

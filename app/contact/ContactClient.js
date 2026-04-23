@@ -68,7 +68,7 @@ const ContactClient = () => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Location</p>
-                    <p className="text-[#1A3C6E] font-semibold text-lg">USA</p>
+                    <p className="text-[#1A3C6E] font-semibold text-lg">30 N Gould St, Sheridan, Wyoming 82801, USA</p>
                   </div>
                 </div>
 

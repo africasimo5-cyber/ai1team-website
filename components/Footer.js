@@ -9,12 +9,26 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Column 1: About */}
           <div>
-            <Image src="/logo.png" alt="AI1team Logo" width={180} height={40} className="w-auto h-10 mb-4" />
-            <p className="text-blue-200 text-sm italic mb-6">
-              AI-Powered Marketing for Modern Businesses
+            <div className="flex flex-col gap-2 mb-6">
+              <div className="flex items-center">
+                <Image 
+                  src="/logo.png" 
+                  alt="AI1team Logo" 
+                  width={200} 
+                  height={70} 
+                  className="w-auto h-12 md:h-[70px] object-contain" 
+                  quality={100}
+                />
+              </div>
+              <p className="text-blue-300 text-sm font-semibold tracking-wide uppercase">
+                AI Automation Agency
+              </p>
+            </div>
+            <p className="text-sm text-gray-100 leading-relaxed max-w-xs">
+              AI-Powered Automation for Ambitious Businesses
             </p>
             <p className="text-sm text-gray-100 leading-relaxed max-w-xs">
-              AI1team is a leading intelligence-driven automation & marketing agency. We leverage cutting-edge artificial intelligence to scale brand growth and optimize digital strategies for ambitious teams worldwide.
+              AI1team is a leading intelligence-driven automation agency. We leverage cutting-edge artificial intelligence to automate business operations and scale smarter for ambitious teams worldwide.
             </p>
             <div className="flex gap-6 mt-8">
               <a href="https://www.linkedin.com/company/ai1team/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-blue-300 transition-colors" aria-label="LinkedIn">
@@ -59,7 +73,7 @@ const Footer = () => {
               </li>
               <li className="flex flex-col">
                 <span className="font-bold text-blue-100">Location</span>
-                <span className="text-gray-100">USA</span>
+                <span className="text-gray-100">30 N Gould St, Sheridan, WY 82801, USA</span>
               </li>
             </ul>
           </div>

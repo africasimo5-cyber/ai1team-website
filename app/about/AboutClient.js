@@ -28,7 +28,7 @@ const AboutClient = () => {
             className="text-xl max-w-2xl mx-auto leading-relaxed"
             style={{ color: "#C8DCFF" }}
           >
-            We are a team of AI automation specialists helping businesses grow through intelligent, data-driven strategies.
+            We are a team of AI automation specialists helping businesses grow through intelligent, data-driven automation strategies.
           </motion.p>
         </div>
       </section>
@@ -37,7 +37,7 @@ const AboutClient = () => {
       <section className="py-24 bg-white">
         <div className="section-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -49,7 +49,7 @@ const AboutClient = () => {
                 To empower businesses of all sizes with AI-driven automation strategies that deliver measurable, sustainable growth.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -82,8 +82,8 @@ const AboutClient = () => {
             >
               <TeamCard
                 name="Robert Mrak"
-                role="CEO & Lead Strategist"
-                bio="With a deep passion for AI and digital marketing, Robert Mrak founded AI1team to bring enterprise-level  marketing and automation intelligence to businesses of all sizes."
+                role="Founder & Lead Strategist"
+                bio="With a deep passion for AI and automation, Robert Mrak founded AI1team to bring enterprise-level automation intelligence to businesses of all sizes."
                 linkedIn="https://www.linkedin.com/in/mrakrobert/"
                 imageSrc="/images/robert_img.jpg"
               />
@@ -96,7 +96,7 @@ const AboutClient = () => {
             >
               <TeamCard
                 name="Oyebode Emmanuel"
-                role="Developer & Operations Director"
+                role="CTO & Co-Founder"
                 bio="Based in Nigeria, Oyebode Emmanuel leads business development and client operations, ensuring every client receives tailored strategies and exceptional results."
                 linkedIn="https://www.linkedin.com/in/oyebode-emmanuel-6bb936242"
                 imageSrc="/images/emman_img.jpeg"

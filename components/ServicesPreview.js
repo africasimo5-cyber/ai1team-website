@@ -80,6 +80,9 @@ const ServicesPreview = () => {
         </div>
 
         <div className="text-center">
+          <p className="text-lightText mb-10 text-lg font-medium">
+            ...and more including AIOS & Audit Services
+          </p>
           <Link 
             href="/services" 
             className="btn-outline px-12 py-4 inline-block"

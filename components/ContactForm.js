@@ -129,14 +129,14 @@ const ContactForm = () => {
               className="w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-700 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2E6DB4]/50 focus:border-[#2E6DB4] transition-all appearance-none"
             >
               <option value="">Select a service...</option>
-              <option value="AI Content Marketing">AI Content Marketing</option>
-              <option value="SEO">SEO Optimization</option>
-              <option value="Social Media">Social Media Management</option>
-              <option value="Email Marketing">Email Marketing</option>
-              <option value="PPC">Paid Advertising (PPC)</option>
-              <option value="Brand Strategy">Brand Strategy</option>
-              <option value="Analytics">Analytics</option>
-              <option value="AI Chatbot">AI Chatbot</option>
+              <option value="Lead Generation & Nurturing">Lead Generation & Nurturing</option>
+              <option value="CRM Setup (GoHighLevel)">CRM Setup (GoHighLevel)</option>
+              <option value="Workflow Automation">Workflow Automation</option>
+              <option value="AI-Powered Chatbots & Support">AI-Powered Chatbots & Support</option>
+              <option value="Data Analytics & Reporting">Data Analytics & Reporting</option>
+              <option value="Custom Integrations">Custom Integrations</option>
+              <option value="AIOS">AIOS</option>
+              <option value="Audit Service">Audit Service</option>
               <option value="Other">Other</option>
             </select>
           </div>

@@ -8,7 +8,9 @@ import {
   FaCogs, 
   FaRobot, 
   FaChartLine, 
-  FaPlug 
+  FaPlug,
+  FaBrain,
+  FaClipboardCheck 
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -48,6 +50,18 @@ const servicesData = [
     title: "Custom Integrations",
     description: "Developing bespoke integrations that connect various business tools and platforms, ensuring seamless data flow and unified operations.",
     features: ["API integrations", "Custom code solutions", "Multi-platform connectivity", "Seamless data flow automation"]
+  },
+  {
+    icon: FaBrain,
+    title: "AIOS — AI Operating System",
+    description: "We build a fully integrated AI Operating System for your business — a central automation hub that connects all your tools, workflows, and data into one intelligent system that runs your operations on autopilot.",
+    features: ["Central automation hub setup", "All tools connected & synchronized", "AI-powered decision making", "24/7 autonomous business operations"]
+  },
+  {
+    icon: FaClipboardCheck,
+    title: "Automation Audit Service",
+    description: "Not sure where to start? We conduct a full audit of your current business processes and tools, identifying automation opportunities, inefficiencies, and a clear roadmap for implementing AI solutions.",
+    features: ["Full business process audit", "Automation opportunity mapping", "Tool stack evaluation", "Custom automation roadmap delivery"]
   }
 ];
 
@@ -75,7 +89,7 @@ const ServicesClient = () => {
             className="text-xl max-w-2xl mx-auto"
             style={{ color: "#C8DCFF" }}
           >
-            Everything your business needs to grow in the digital age
+            End-to-end AI automation solutions built for modern businesses
           </motion.p>
         </div>
       </section>

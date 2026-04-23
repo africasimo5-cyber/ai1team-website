@@ -35,15 +35,24 @@ const Navbar = () => {
       className={`fixed inset-x-0 top-0 z-50 bg-white border-b border-blue-50
         transition-shadow duration-300 ${scrolled ? "shadow-navbar" : ""}`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20 md:h-[100px]">
         {/* ── Logo ── */}
         <Link
           href="/"
-          className="flex items-center gap-2 select-none"
+          className="flex items-center select-none group"
           aria-label="AI1team home"
         >
-          <Image src="/logo.png" alt="AI1team Logo" width={180} height={40} className="w-auto h-8 md:h-9" priority />
+          <div className="relative">
+            <Image 
+              src="/logo.png" 
+              alt="AI1team Logo" 
+              width={240} 
+              height={80} 
+              className="w-auto h-14 md:h-[80px] object-contain transition-transform group-hover:scale-105" 
+              priority 
+              quality={100}
+            />
+          </div>
         </Link>
 
         {/* ── Desktop nav links ── */}

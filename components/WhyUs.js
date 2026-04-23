@@ -7,17 +7,17 @@ const values = [
   {
     icon: <FaRobot />,
     title: "AI-Driven Results",
-    description: "We use cutting-edge AI tools to deliver marketing outcomes that outperform traditional agencies."
+    description: "We use cutting-edge AI tools to deliver automation systems that save your business time and money."
   },
   {
     icon: <FaChartLine />,
     title: "Data-First Approach",
-    description: "Every decision is backed by real-time data and analytics, ensuring your budget is always working hard."
+    description: "Every decision is backed by real-time data and analytics, ensuring your workflows are always optimized."
   },
   {
     icon: <FaBullseye />,
     title: "Tailored Strategies",
-    description: "No cookie-cutter plans. Every strategy is custom-built for your business goals and audience."
+    description: "No generic templates. Every automation system is custom-built around your specific business processes."
   }
 ];
 

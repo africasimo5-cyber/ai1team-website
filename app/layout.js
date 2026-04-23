@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "AI1team | AI Automation Agency for Ambitious Brands",
-  description: "AI-powered automation services for businesses",
+  title: "AI1team | AI Automation Agency",
+  description: "AI1team delivers intelligent AI-powered automation systems using GoHighLevel, Make.com, Zapier, and n8n to help businesses scale faster and smarter.",
 };
 
 export default function RootLayout({ children }) {
