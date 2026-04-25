@@ -15,32 +15,32 @@ const services = [
   {
     icon: <FaMagnet />,
     title: "Lead Generation & Nurturing",
-    description: "Using GoHighLevel to create landing pages, funnels, and automated follow-up sequences that capture leads and nurture them through email and SMS."
+    description: "Never chase a lead manually again. We build automated funnels and follow-up sequences that capture, nurture, and convert prospects for you — 24 hours a day, 7 days a week."
   },
   {
     icon: <FaHandshake />,
     title: "Customer Relationship Management (CRM)",
-    description: "Setting up and customizing GoHighLevel as a CRM to help businesses manage their leads, track interactions, and improve client relationships."
+    description: "Stop losing track of clients and conversations. We set up a fully organized CRM system so you always know where every lead stands and what to do next — automatically."
   },
   {
     icon: <FaCogs />,
     title: "Workflow Automation",
-    description: "Using Zapier, Make.com, and n8n to automate repetitive tasks — like syncing data between platforms, sending notifications, and updating records — so businesses save time and reduce manual effort."
+    description: "Reclaim hours every single day. We eliminate the manual, repetitive tasks draining your time by building smart workflows that run your operations on autopilot using Zapier, Make.com, and n8n."
   },
   {
     icon: <FaRobot />,
     title: "AI-Powered Chatbots & Support",
-    description: "Integrating AI chatbots that handle customer queries, qualify leads, and provide support 24/7, improving response times and customer experience."
+    description: "Your business never sleeps. Our AI chatbots answer customer questions, qualify leads, and book appointments 24/7 — so no opportunity is ever missed, even outside business hours."
   },
   {
     icon: <FaChartLine />,
     title: "Data Analytics & Reporting",
-    description: "Building custom dashboards and reports that use AI to analyze business data, generate insights, and help businesses make informed decisions."
+    description: "Stop guessing what's working. We build real-time dashboards that show you exactly where your revenue comes from, what's underperforming, and what to do next — so every decision is backed by data."
   },
   {
     icon: <FaPlug />,
     title: "Custom Integrations",
-    description: "Developing bespoke integrations that connect various business tools and platforms, ensuring seamless data flow and unified operations."
+    description: "Make all your tools work as one. We connect your entire software stack so data flows seamlessly between platforms — eliminating duplication, saving time, and giving you a single source of truth."
   }
 ];
 

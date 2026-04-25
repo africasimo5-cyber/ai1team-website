@@ -18,50 +18,90 @@ const servicesData = [
   {
     icon: FaMagnet,
     title: "Lead Generation & Nurturing",
-    description: "Using GoHighLevel to create landing pages, funnels, and automated follow-up sequences that capture leads and nurture them through email and SMS.",
-    features: ["Landing page & funnel building", "Automated email sequences", "SMS follow-up campaigns", "Lead scoring & segmentation"]
+    description: "Never chase a lead manually again. We build automated funnels and follow-up sequences that capture, nurture, and convert prospects for you — 24 hours a day, 7 days a week.",
+    features: [
+      "Leads captured automatically from every channel",
+      "Follow-ups sent without you lifting a finger",
+      "Prospects nurtured until they're ready to buy",
+      "More conversions with zero extra manual effort"
+    ]
   },
   {
     icon: FaHandshake,
     title: "Customer Relationship Management (CRM)",
-    description: "Setting up and customizing GoHighLevel as a CRM to help businesses manage their leads, track interactions, and improve client relationships.",
-    features: ["GoHighLevel CRM setup", "Pipeline management", "Contact tracking & history", "Automated client follow-ups"]
+    description: "Stop losing track of clients and conversations. We set up a fully organized CRM system so you always know where every lead stands and what to do next — automatically.",
+    features: [
+      "Every client and lead organized in one place",
+      "Never forget a follow-up or miss an opportunity",
+      "Your entire sales pipeline visible at a glance",
+      "Automated reminders and client updates"
+    ]
   },
   {
     icon: FaCogs,
     title: "Workflow Automation",
-    description: "Using Zapier, Make.com, and n8n to automate repetitive tasks — like syncing data between platforms, sending notifications, and updating records — so businesses save time and reduce manual effort.",
-    features: ["Zapier & Make.com integrations", "n8n advanced workflows", "Cross-platform data syncing", "Automated notifications & alerts"]
+    description: "Reclaim hours every single day. We eliminate the manual, repetitive tasks draining your time by building smart workflows that run your operations on autopilot using Zapier, Make.com, and n8n.",
+    features: [
+      "Hours saved every week on manual tasks",
+      "Zero data entry errors across your platforms",
+      "Your tools all talking to each other seamlessly",
+      "More time to focus on what actually grows revenue"
+    ]
   },
   {
     icon: FaRobot,
     title: "AI-Powered Chatbots & Support",
-    description: "Integrating AI chatbots that handle customer queries, qualify leads, and provide support 24/7, improving response times and customer experience.",
-    features: ["AI chatbot design & deployment", "Lead qualification bots", "24/7 customer support automation", "Website & WhatsApp integration"]
+    description: "Your business never sleeps. Our AI chatbots answer customer questions, qualify leads, and book appointments 24/7 — so no opportunity is ever missed, even outside business hours.",
+    features: [
+      "Instant responses to customers at any hour",
+      "Leads qualified automatically before they reach you",
+      "Appointments booked without back-and-forth emails",
+      "Better customer experience without extra staff"
+    ]
   },
   {
     icon: FaChartLine,
     title: "Data Analytics & Reporting",
-    description: "Building custom dashboards and reports that use AI to analyze business data, generate insights, and help businesses make informed decisions.",
-    features: ["Custom dashboard creation", "Automated reporting", "AI-driven data insights", "KPI tracking & visualization"]
+    description: "Stop guessing what's working. We build real-time dashboards that show you exactly where your revenue comes from, what's underperforming, and what to do next — so every decision is backed by data.",
+    features: [
+      "See your most profitable channels at a glance",
+      "Spot problems before they cost you money",
+      "Reports delivered automatically — no manual compiling",
+      "Confident decisions backed by real numbers"
+    ]
   },
   {
     icon: FaPlug,
     title: "Custom Integrations",
-    description: "Developing bespoke integrations that connect various business tools and platforms, ensuring seamless data flow and unified operations.",
-    features: ["API integrations", "Custom code solutions", "Multi-platform connectivity", "Seamless data flow automation"]
+    description: "Make all your tools work as one. We connect your entire software stack so data flows seamlessly between platforms — eliminating duplication, saving time, and giving you a single source of truth.",
+    features: [
+      "All your business tools connected and in sync",
+      "No more copying data between platforms manually",
+      "One unified view of your entire operation",
+      "A tech stack that works harder for your business"
+    ]
   },
   {
     icon: FaBrain,
     title: "AIOS — AI Operating System",
-    description: "We build a fully integrated AI Operating System for your business — a central automation hub that connects all your tools, workflows, and data into one intelligent system that runs your operations on autopilot.",
-    features: ["Central automation hub setup", "All tools connected & synchronized", "AI-powered decision making", "24/7 autonomous business operations"]
+    description: "Run your entire business on autopilot. AIOS is a fully integrated AI hub that connects all your tools, workflows, and data into one intelligent system — making decisions and taking actions so you don't have to.",
+    features: [
+      "Your entire business connected in one smart system",
+      "Decisions made and actions taken automatically",
+      "Operations running 24/7 without manual input",
+      "Scale your business without scaling your workload"
+    ]
   },
   {
     icon: FaClipboardCheck,
     title: "Automation Audit Service",
-    description: "Not sure where to start? We conduct a full audit of your current business processes and tools, identifying automation opportunities, inefficiencies, and a clear roadmap for implementing AI solutions.",
-    features: ["Full business process audit", "Automation opportunity mapping", "Tool stack evaluation", "Custom automation roadmap delivery"]
+    description: "Find out exactly where your business is leaking time and money. Our automation audit identifies every manual process that should be automated and gives you a clear, actionable roadmap to fix it fast.",
+    features: [
+      "Discover hidden time and money drains in your business",
+      "A clear roadmap of exactly what to automate first",
+      "Prioritized quick wins for immediate results",
+      "Confidence to invest in the right automation solutions"
+    ]
   }
 ];
 

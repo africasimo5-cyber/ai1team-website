@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import ServicesPreview from "@/components/ServicesPreview";
 import WhyUs from "@/components/WhyUs";
 import CTABanner from "@/components/CTABanner";
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <BenefitsSection />
       <ServicesPreview />
       <WhyUs />
       <CTABanner />

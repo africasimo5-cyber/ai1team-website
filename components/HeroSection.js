@@ -17,21 +17,33 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight flex flex-col items-center text-white">
-            <span className="mb-2">Grow Your Business With</span>
-            <span className="drop-shadow-2xl">The Power of</span>
-            <div className="h-auto flex items-center justify-center mt-2 relative w-full">
-              <span className="text-blue-300">
-                AI Automation
-              </span>
-            </div>
-          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight text-white drop-shadow-lg">
+            Stop Losing Time, Leads & <br className="hidden md:block" /> Money to Manual Work
+          </h1>
+
           <p
-            className="max-w-3xl mx-auto mb-16 md:mb-12 text-lg"
+            className="max-w-3xl mx-auto mb-10 text-xl md:text-2xl font-medium leading-relaxed"
             style={{ color: "#C8DCFF" }}
           >
-            AI1team delivers intelligent, data-driven automation strategies that help businesses of all sizes scale faster and smarter.
+            AI1team automates your entire business operation — so you get more leads, close more clients, and reclaim your time. All on autopilot.
           </p>
+
+          {/* Benefit Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+            {[
+              "Save 20+ Hours Every Week",
+              "Never Miss a Lead Again",
+              "Your Business Runs 24/7"
+            ].map((benefit, idx) => (
+              <span
+                key={idx}
+                className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold backdrop-blur-sm"
+              >
+                <span className="text-green-400 mr-2">📍</span>
+                {benefit}
+              </span>
+            ))}
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
@@ -44,7 +56,7 @@ const HeroSection = () => {
               href="/services"
               className="px-10 py-4 border-2 border-white hover:bg-white/10 text-white font-bold rounded-lg transition-all duration-300 w-full sm:w-auto text-center"
             >
-              View Our Services
+              See How It Works
             </Link>
           </div>
         </motion.div>
