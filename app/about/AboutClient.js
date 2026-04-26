@@ -3,37 +3,12 @@
 import { motion } from "framer-motion";
 import TeamCard from "@/components/TeamCard";
 import CTABanner from "@/components/CTABanner";
+import { FaLightbulb, FaEye, FaChartLine } from "react-icons/fa";
 
 const AboutClient = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 1. Page Hero */}
-      <section
-        className="relative bg-cover bg-center bg-no-repeat min-h-[480px] flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/hero-about.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-[#0A193C] opacity-[0.85]" />
-        <div className="relative z-10 text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
-          >
-            About AI1team
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl max-w-2xl mx-auto leading-relaxed"
-            style={{ color: "#C8DCFF" }}
-          >
-            We are a team of AI automation specialists helping businesses grow through intelligent, data-driven automation strategies.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* 2. Mission & Vision Section */}
+      {/* 1. Mission & Vision Section */}
       <section className="py-24 bg-white">
         <div className="section-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -65,7 +40,7 @@ const AboutClient = () => {
         </div>
       </section>
 
-      {/* 3. Meet The Team Section */}
+      {/* 2. Meet The Team Section */}
       <section className="py-24 bg-[#F0F6FF]">
         <div className="section-container">
           <div className="text-center mb-16">
@@ -106,13 +81,9 @@ const AboutClient = () => {
         </div>
       </section>
 
-      {/* 4. Our Values Section */}
-      <section
-        className="py-24 relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/bg-values.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-[#0A193C] opacity-60" />
-        <div className="section-container relative z-10">
+      {/* 3. Our Values Section */}
+      <section className="py-24 bg-[#0f0f17]">
+        <div className="section-container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
               Our Values
@@ -121,24 +92,46 @@ const AboutClient = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm text-center">
-              <h3 className="text-xl font-bold text-[#1A3C6E] mb-3">Innovation</h3>
-              <p className="text-gray-500 text-sm">We embrace the latest AI tools and technologies</p>
-            </div>
-            <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm text-center">
-              <h3 className="text-xl font-bold text-[#1A3C6E] mb-3">Transparency</h3>
-              <p className="text-gray-500 text-sm">We keep clients informed at every step</p>
-            </div>
-            <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-sm text-center">
-              <h3 className="text-xl font-bold text-[#1A3C6E] mb-3">Results</h3>
-              <p className="text-gray-500 text-sm">We measure success by your growth, not just our effort</p>
-            </div>
+            {[
+              {
+                title: "Innovation",
+                description: "We embrace the latest AI tools and technologies to stay ahead.",
+                icon: <FaLightbulb />
+              },
+              {
+                title: "Transparency",
+                description: "We keep clients informed at every step of the journey.",
+                icon: <FaEye />
+              },
+              {
+                title: "Results",
+                description: "We measure success by your growth and ROI.",
+                icon: <FaChartLine />
+              }
+            ].map((value, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-[#16161f] rounded-2xl border border-white/5 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#2E6DB4]/35 hover:shadow-[0_0_30px_rgba(46,109,180,0.25)]"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2E6DB4] to-[#9333ea] flex items-center justify-center mb-6">
+                  <div className="text-white text-2xl">
+                    {value.icon}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                <p className="text-[#94a3b8] text-sm leading-relaxed">{value.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 5. CTABanner */}
-      <CTABanner />
+      <CTABanner bgImage="/images/hero-about.jpg" />
     </div>
   );
 };

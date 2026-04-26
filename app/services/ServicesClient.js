@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import ServiceCard from "@/components/ServiceCard";
 import { 
   FaMagnet, 
-  FaHandshake, 
+  FaUsers, 
   FaCogs, 
   FaRobot, 
-  FaChartLine, 
-  FaPlug,
+  FaChartBar, 
+  FaPuzzlePiece,
   FaBrain,
   FaClipboardCheck 
 } from "react-icons/fa";
 import Link from "next/link";
 
-const servicesData = [
+export const servicesData = [
   {
     icon: FaMagnet,
     title: "Lead Generation & Nurturing",
@@ -27,7 +27,7 @@ const servicesData = [
     ]
   },
   {
-    icon: FaHandshake,
+    icon: FaUsers,
     title: "Customer Relationship Management (CRM)",
     description: "Stop losing track of clients and conversations. We set up a fully organized CRM system so you always know where every lead stands and what to do next — automatically.",
     features: [
@@ -60,7 +60,7 @@ const servicesData = [
     ]
   },
   {
-    icon: FaChartLine,
+    icon: FaChartBar,
     title: "Data Analytics & Reporting",
     description: "Stop guessing what's working. We build real-time dashboards that show you exactly where your revenue comes from, what's underperforming, and what to do next — so every decision is backed by data.",
     features: [
@@ -71,7 +71,7 @@ const servicesData = [
     ]
   },
   {
-    icon: FaPlug,
+    icon: FaPuzzlePiece,
     title: "Custom Integrations",
     description: "Make all your tools work as one. We connect your entire software stack so data flows seamlessly between platforms — eliminating duplication, saving time, and giving you a single source of truth.",
     features: [
@@ -135,9 +135,9 @@ const ServicesClient = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-[#F8FAFF]">
+      <section className="py-24 bg-[#0f0f17]">
         <div className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {servicesData.map((service, index) => (
               <ServiceCard key={index} {...service} index={index} />
             ))}
@@ -146,23 +146,49 @@ const ServicesClient = () => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-white">
-        <div className="section-container">
-          <div className="bg-primary rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
+      <section className="py-24 bg-[#0f0f17]">
+        <div className="section-container px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative overflow-hidden rounded-[3rem] p-12 md:p-20 text-center border border-[#2E6DB4]/30 shadow-2xl max-w-5xl mx-auto"
+            style={{
+              background: "linear-gradient(135deg, #0D2247 0%, #1A3C6E 50%, #0D2247 100%)",
+            }}
+          >
+            {/* Advanced Glowing Orbs */}
+            <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(46,109,180,0.2)_0%,transparent_70%)] rounded-full pointer-events-none z-0 mix-blend-screen" />
+            <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(147,51,234,0.15)_0%,transparent_70%)] rounded-full pointer-events-none z-0 mix-blend-screen" />
+            
+            {/* Grid Pattern Overlay */}
+            <div 
+              className="absolute inset-0 opacity-10 pointer-events-none z-0" 
+              style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "32px 32px" }}
+            />
+
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Not sure which service you need?</h2>
-              <p className="text-blue-100 text-lg mb-10 text-center mx-auto max-w-2xl">
-                Let us build a custom plan tailored to your business goals.
+              <div className="inline-block bg-[#2E6DB4]/20 border border-[#2E6DB4]/40 text-[#93c5fd] text-sm font-medium px-5 py-2 rounded-full mb-8">
+                Custom Solutions
+              </div>
+              
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight">
+                Not sure which service you need?
+              </h2>
+              
+              <p className="text-blue-100/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                Every business is unique. Let us analyze your workflows and build a custom automation plan tailored specifically to your goals.
               </p>
+              
               <Link 
                 href="/contact" 
-                className="btn-primary px-12 py-4 shadow-xl shadow-accent/20"
+                className="bg-[#2E6DB4] hover:bg-white hover:text-[#1A3C6E] border-2 border-transparent hover:border-white text-white font-bold px-12 py-5 rounded-full text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(46,109,180,0.6)] inline-block"
               >
-                Contact Us Today
+                Book a Free Discovery Call
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

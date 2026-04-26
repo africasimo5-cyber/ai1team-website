@@ -59,6 +59,36 @@ const HeroSection = () => {
               See How It Works
             </Link>
           </div>
+
+          {/* Trusted Logos Strip */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="mt-12"
+          >
+            <p className="text-sm text-center mb-4 text-white/50">
+              Trusted by businesses worldwide
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              {[
+                "NovaTech",
+                "ScaleUp Co.",
+                "BrightPath",
+                "CoreFlow",
+                "Nexus Labs"
+              ].map((company, idx) => (
+                <div 
+                  key={idx}
+                  className="flex items-center justify-center bg-white/10 border border-white/10 rounded-lg w-28 h-10 backdrop-blur-sm"
+                >
+                  <span className="text-white/40 text-xs font-medium">
+                    {company}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

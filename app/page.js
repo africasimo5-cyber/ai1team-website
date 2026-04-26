@@ -1,8 +1,11 @@
 import HeroSection from "@/components/HeroSection";
+import StatsSection from "@/components/StatsSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ServicesPreview from "@/components/ServicesPreview";
+import HowItWorks from "@/components/HowItWorks";
 import WhyUs from "@/components/WhyUs";
 import CTABanner from "@/components/CTABanner";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 export const metadata = {
   title: "AI1team | AI Automation Agency for Ambitious Brands",
@@ -21,10 +24,13 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <StatsSection />
       <BenefitsSection />
       <ServicesPreview />
+      <HowItWorks />
       <WhyUs />
       <CTABanner />
+      <TestimonialsSection />
     </>
   );
 }
