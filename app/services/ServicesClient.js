@@ -2,15 +2,15 @@
 
 import { motion } from "framer-motion";
 import ServiceCard from "@/components/ServiceCard";
-import { 
-  FaMagnet, 
-  FaUsers, 
-  FaCogs, 
-  FaRobot, 
-  FaChartBar, 
+import {
+  FaMagnet,
+  FaUsers,
+  FaCogs,
+  FaRobot,
+  FaChartBar,
   FaPuzzlePiece,
   FaBrain,
-  FaClipboardCheck 
+  FaClipboardCheck
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -109,7 +109,7 @@ const ServicesClient = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Page Hero */}
-      <section 
+      <section
         className="relative bg-cover bg-center bg-no-repeat min-h-[480px] flex items-center justify-center"
         style={{ backgroundImage: "url('/images/hero-services.jpg')" }}
       >
@@ -146,9 +146,9 @@ const ServicesClient = () => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-24 bg-[#0f0f17]">
+      <section className="py-24 bg-[#F0F6FF]">
         <div className="section-container px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -161,10 +161,10 @@ const ServicesClient = () => {
             {/* Advanced Glowing Orbs */}
             <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(46,109,180,0.2)_0%,transparent_70%)] rounded-full pointer-events-none z-0 mix-blend-screen" />
             <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(147,51,234,0.15)_0%,transparent_70%)] rounded-full pointer-events-none z-0 mix-blend-screen" />
-            
+
             {/* Grid Pattern Overlay */}
-            <div 
-              className="absolute inset-0 opacity-10 pointer-events-none z-0" 
+            <div
+              className="absolute inset-0 opacity-10 pointer-events-none z-0"
               style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "32px 32px" }}
             />
 
@@ -172,17 +172,17 @@ const ServicesClient = () => {
               <div className="inline-block bg-[#2E6DB4]/20 border border-[#2E6DB4]/40 text-[#93c5fd] text-sm font-medium px-5 py-2 rounded-full mb-8">
                 Custom Solutions
               </div>
-              
+
               <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight">
                 Not sure which service you need?
               </h2>
-              
+
               <p className="text-blue-100/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
                 Every business is unique. Let us analyze your workflows and build a custom automation plan tailored specifically to your goals.
               </p>
-              
-              <Link 
-                href="/contact" 
+
+              <Link
+                href="/contact"
                 className="bg-[#2E6DB4] hover:bg-white hover:text-[#1A3C6E] border-2 border-transparent hover:border-white text-white font-bold px-12 py-5 rounded-full text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(46,109,180,0.6)] inline-block"
               >
                 Book a Free Discovery Call

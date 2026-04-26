@@ -87,35 +87,33 @@ const StatsSection = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
+          className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 lg:gap-6">
             {stats.map((stat, index) => {
-              const Icon = stat.icon;
+              let borderClasses = "border-white/10 ";
+              if (index === 0) borderClasses += "border-b border-r lg:border-b-0";
+              else if (index === 1) borderClasses += "border-b lg:border-b-0 lg:border-r";
+              else if (index === 2) borderClasses += "border-r";
+              
               return (
                 <div 
                   key={index} 
-                  className={`relative flex flex-col items-center text-center group transition-transform duration-300 hover:-translate-y-1 ${
-                    index !== stats.length - 1 ? "lg:border-r lg:border-white/10" : ""
-                  }`}
+                  className={`flex flex-col items-center text-center py-6 px-4 transition-transform duration-300 hover:-translate-y-1 ${borderClasses}`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5 text-[#93c5fd] group-hover:text-white group-hover:bg-[#2E6DB4]/30 transition-all duration-300">
-                    <Icon className="text-xl" />
-                  </div>
-                  
-                  <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 text-5xl mb-2">
+                  <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 text-3xl lg:text-4xl mb-2">
                     {stat.count}{stat.suffix}
-                  </div>
+                  </span>
                   
-                  <div className="text-white/60 text-sm font-medium tracking-wide max-w-[140px] mx-auto leading-snug">
+                  <span className="text-[11px] lg:text-xs uppercase tracking-wider mt-1 text-white/55 max-w-[120px] text-center leading-relaxed">
                     {stat.label}
-                  </div>
+                  </span>
                 </div>
               );
             })}

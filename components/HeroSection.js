@@ -6,7 +6,7 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat min-h-[480px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-24 md:py-0"
+      className="relative bg-cover bg-center bg-no-repeat min-h-[480px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32"
       style={{ backgroundImage: "url('/images/hero-home.jpg')" }}
     >
       <div className="absolute inset-0 bg-[#0A193C] opacity-[0.85] z-0" />
@@ -78,7 +78,7 @@ const HeroSection = () => {
                 "CoreFlow",
                 "Nexus Labs"
               ].map((company, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="flex items-center justify-center bg-white/10 border border-white/10 rounded-lg w-28 h-10 backdrop-blur-sm"
                 >
