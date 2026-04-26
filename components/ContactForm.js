@@ -71,7 +71,7 @@ const ContactForm = () => {
       <div className="mb-6">
         <h3 className="font-bold text-[#1A3C6E] text-xl">Send Us a Message</h3>
         <p className="text-[#555577] text-sm mt-1">
-          Fill in the form and we'll get back to you within 24 hours.
+          Fill in the form and we&apos;ll get back to you within 24 hours.
         </p>
       </div>
 
@@ -159,7 +159,7 @@ const ContactForm = () => {
             <option value="$500 - $1,000">$500 - $1,000</option>
             <option value="$1,000 - $5,000">$1,000 - $5,000</option>
             <option value="$5,000+">$5,000+</option>
-            <option value="Let's Discuss">Let's Discuss</option>
+            <option value="Let's Discuss">Let&apos;s Discuss</option>
           </select>
         </div>
 

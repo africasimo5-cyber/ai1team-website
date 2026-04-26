@@ -77,7 +77,7 @@ const ContactClient = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="bg-white/10 border border-white/15 text-white/90 text-sm px-4 py-2 rounded-full w-fit mx-auto mb-6 backdrop-blur-sm shadow-sm">
-              💬 Let's Start a Conversation
+              💬 Let&apos;s Start a Conversation
             </div>
           </motion.div>
 
@@ -96,7 +96,7 @@ const ContactClient = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/70 text-base md:text-lg text-center max-w-[520px] mx-auto leading-relaxed"
           >
-            Ready to automate your business? Tell us about your goals and we'll build a custom strategy for you — completely free.
+            Ready to automate your business? Tell us about your goals and we&apos;ll build a custom strategy for you — completely free.
           </motion.p>
 
           <motion.div
@@ -125,7 +125,7 @@ const ContactClient = () => {
                 CONTACT INFORMATION
               </div>
               <h2 className="font-bold text-[#1A3C6E] text-3xl md:text-4xl mb-3">
-                We'd Love to Hear From You
+                We&apos;d Love to Hear From You
               </h2>
               <p className="text-[#555577] text-sm md:text-base leading-relaxed mb-8 max-w-lg">
                 Whether you have a question about our services, want to discuss a project, or just want to learn more — our team is ready to help.
