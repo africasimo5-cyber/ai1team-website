@@ -12,11 +12,17 @@ const ServicesPreview = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-white font-bold text-3xl">
-            Our Services
+          <span className="text-xs font-bold uppercase tracking-widest text-[#60a5fa] mb-4 block">
+            What We Build
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+            AI Automation{" "}
+            <span className="bg-gradient-to-r from-[#60a5fa] to-[#818cf8] bg-clip-text text-transparent">
+              Built for Results
+            </span>
           </h2>
-          <p className="text-[#94a3b8] text-center mt-2">
-            End-to-end AI automation solutions built for modern businesses
+          <p className="text-[#94a3b8] text-center mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+            End-to-end systems that capture leads, nurture clients, and run your business — without you lifting a finger.
           </p>
         </div>
 

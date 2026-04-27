@@ -5,55 +5,90 @@ import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
 import CTABanner from "@/components/CTABanner";
 import { FaLinkedinIn, FaXTwitter, FaInstagram, FaFacebook, FaLocationDot } from "react-icons/fa6";
-import { FaEnvelope, FaClock } from "react-icons/fa";
+import { FaEnvelope, FaClock, FaChevronDown, FaCheck, FaFileAlt, FaPhoneAlt, FaRocket } from "react-icons/fa";
 
 const faqs = [
   {
     q: "How long does it take to set up automation?",
-    a: "Most projects are fully built and live within 1-3 weeks, depending on complexity. Simple automations can go live in as little as 3-5 business days."
+    a: "Most projects are fully built and live within 1–3 weeks, depending on complexity. Simple automations can go live in as little as 3–5 business days.",
   },
   {
     q: "Do I need technical knowledge to use the systems you build?",
-    a: "Not at all. We build everything for you and provide full training so your team can manage it easily. We also offer ongoing support after launch."
+    a: "Not at all. We build everything for you and provide full training so your team can manage it easily. We also offer ongoing support after launch.",
   },
   {
     q: "Which tools do you use to build automations?",
-    a: "We primarily use GoHighLevel, Make.com, Zapier, and n8n — plus custom code where needed. We recommend the best tool for your specific business needs."
+    a: "We primarily use GoHighLevel, Make.com, Zapier, and n8n — plus custom code where needed. We recommend the best tool for your specific business needs.",
   },
   {
     q: "Is there a free consultation available?",
-    a: "Yes! We offer a free 30-minute discovery call where we learn about your business and suggest the best automation strategy — completely free and with no obligation."
-  }
+    a: "Yes. We offer a free 30-minute discovery call where we learn about your business and suggest the best automation strategy — completely free and with no obligation.",
+  },
+];
+
+const nextSteps = [
+  {
+    icon: FaFileAlt,
+    step: "01",
+    title: "Submit Your Details",
+    desc: "Fill in the form with your business goals and what you'd like to automate.",
+  },
+  {
+    icon: FaPhoneAlt,
+    step: "02",
+    title: "We Review & Respond",
+    desc: "Our team reviews your submission and reaches out within 24 hours.",
+  },
+  {
+    icon: FaRocket,
+    step: "03",
+    title: "Strategy Call Scheduled",
+    desc: "We book a free call to map out the right automation plan for your business.",
+  },
 ];
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border-b border-[#1A3C6E]/[0.08] py-5">
+    <div
+      className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
+        isOpen
+          ? "border-[#2E6DB4]/40 shadow-[0_4px_24px_rgba(46,109,180,0.08)] bg-white"
+          : "border-[#1A3C6E]/[0.08] bg-white hover:border-[#2E6DB4]/20"
+      }`}
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center text-left focus:outline-none group"
+        className="w-full flex justify-between items-center text-left px-6 py-5 group focus:outline-none"
+        aria-expanded={isOpen}
       >
-        <span className="font-semibold text-[#1A3C6E] group-hover:text-[#2E6DB4] transition-colors">{question}</span>
+        <span className={`font-semibold text-sm pr-4 leading-snug transition-colors duration-200 ${
+          isOpen ? "text-[#2E6DB4]" : "text-[#1A1A2E] group-hover:text-[#2E6DB4]"
+        }`}>
+          {question}
+        </span>
         <motion.span
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          className="text-[#2E6DB4] text-xl font-light ml-4 shrink-0"
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.22, ease: "easeInOut" }}
+          className="shrink-0 flex items-center"
         >
-          +
+          <FaChevronDown className={`text-[11px] transition-colors duration-200 ${
+            isOpen ? "text-[#2E6DB4]" : "text-[#94a3b8] group-hover:text-[#2E6DB4]"
+          }`} />
         </motion.span>
       </button>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="text-[#555577] text-sm text-left mt-3 leading-relaxed">
-              {answer}
-            </p>
+            <div className="px-6 pb-5 border-t border-[#2E6DB4]/[0.08]">
+              <p className="text-[#555577] text-sm leading-relaxed pt-4">{answer}</p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -64,173 +99,231 @@ const FAQItem = ({ question, answer }) => {
 const ContactClient = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-20 pb-20 text-center bg-gradient-to-br from-[#0D2247] to-[#1A3C6E]">
-        {/* Background Orbs */}
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#2E6DB4]/20 blur-3xl rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#2E6DB4]/15 blur-3xl rounded-full pointer-events-none translate-x-1/3 translate-y-1/3" />
 
-        <div className="relative z-10 px-6 max-w-4xl mx-auto">
+      {/* ── 1. Hero ── */}
+      <section className="relative bg-[#0f0f17] min-h-[72vh] flex items-center justify-center overflow-hidden pt-20 md:pt-[100px]">
+
+        {/* Orbs */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 -left-16 w-[580px] h-[580px] rounded-full bg-[radial-gradient(circle,rgba(26,60,110,0.55)_0%,transparent_65%)]" />
+          <div className="absolute -bottom-24 -right-16 w-[480px] h-[480px] rounded-full bg-[radial-gradient(circle,rgba(46,109,180,0.28)_0%,transparent_65%)]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.07)_0%,transparent_70%)]" />
+        </div>
+
+        {/* Dot-grid texture */}
+        <div
+          className="absolute inset-0 opacity-[0.045] pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+        />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-20">
+
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2.5 bg-[#2E6DB4]/10 border border-[#2E6DB4]/25
+              text-[#93c5fd] text-xs font-semibold uppercase tracking-widest px-5 py-2 rounded-full mb-8"
           >
-            <div className="bg-white/10 border border-white/15 text-white/90 text-sm px-4 py-2 rounded-full w-fit mx-auto mb-6 backdrop-blur-sm shadow-sm">
-              💬 Let&apos;s Start a Conversation
-            </div>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] animate-pulse" />
+            Let&apos;s Work Together
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-bold text-white text-3xl md:text-5xl lg:text-5xl text-center leading-tight mb-4 tracking-tight"
+            transition={{ duration: 0.65, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-[3.75rem] font-extrabold text-white leading-[1.1] tracking-tight mb-6"
           >
-            Get In Touch With AI1team
+            Get In Touch With{" "}
+            <span className="bg-gradient-to-r from-[#60a5fa] via-[#2E6DB4] to-[#818cf8] bg-clip-text text-transparent">
+              AI1team
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/70 text-base md:text-lg text-center max-w-[520px] mx-auto leading-relaxed"
+            transition={{ duration: 0.6, delay: 0.22 }}
+            className="text-base md:text-lg text-[#94a3b8] max-w-xl mx-auto leading-relaxed mb-10"
           >
-            Ready to automate your business? Tell us about your goals and we&apos;ll build a custom strategy for you — completely free.
+            Ready to automate your business? Tell us about your goals and we&apos;ll build
+            a custom strategy — completely free, no obligation.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 mt-8"
+            transition={{ duration: 0.5, delay: 0.32 }}
+            className="flex flex-wrap justify-center gap-3"
           >
-            {["Free Discovery Call", "⚡ Response Within 24hrs", "No Commitment Required"].map((badge, idx) => (
-              <span key={idx} className="bg-white/10 border border-white/10 text-white/85 text-sm px-4 py-2 rounded-full backdrop-blur-sm">
+            {[
+              "Free Discovery Call",
+              "Response Within 24hrs",
+              "No Commitment Required",
+            ].map((badge) => (
+              <span
+                key={badge}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/12 text-white text-sm font-semibold backdrop-blur-sm"
+              >
+                <FaCheck className="text-[#4ade80] text-[10px] shrink-0" />
                 {badge}
               </span>
             ))}
           </motion.div>
         </div>
+
+        {/* Fade into next section */}
+        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#F0F6FF] to-transparent pointer-events-none" />
       </section>
 
-      {/* 2. MAIN CONTACT SECTION */}
-      <section className="bg-[#F0F6FF] py-20 px-6 relative z-20 -mt-6">
+      {/* ── 2. What Happens Next ── */}
+      <section className="bg-[#F0F6FF] pt-16 pb-4 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-xs font-bold uppercase tracking-widest text-[#2E6DB4] mb-10">
+            What Happens Next
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {nextSteps.map(({ icon: Icon, step, title, desc }, idx) => (
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: idx * 0.12 }}
+                className="relative bg-white rounded-2xl p-7 border border-[#1A3C6E]/[0.07] shadow-sm overflow-hidden
+                  hover:-translate-y-1 transition-transform duration-300"
+              >
+                {/* Gradient top bar */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#2E6DB4] to-[#818cf8]" />
+
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2E6DB4] to-[#1A3C6E] flex items-center justify-center shrink-0">
+                    <Icon className="text-white text-sm" />
+                  </div>
+                  <span className="text-[11px] font-bold text-[#2E6DB4]/50 uppercase tracking-widest">
+                    Step {step}
+                  </span>
+                </div>
+                <h3 className="font-bold text-[#1A1A2E] text-base mb-2">{title}</h3>
+                <p className="text-[#555577] text-sm leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Main Contact Section ── */}
+      <section className="bg-[#F0F6FF] py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
 
-            {/* Left Column - Contact Info */}
+            {/* Left Column — Contact Info */}
             <div>
-              <div className="text-xs uppercase tracking-widest text-[#2E6DB4] font-semibold mb-3">
-                CONTACT INFORMATION
+              <div className="text-xs uppercase tracking-widest text-[#2E6DB4] font-bold mb-3">
+                Contact Information
               </div>
-              <h2 className="font-bold text-[#1A3C6E] text-3xl md:text-4xl mb-3">
+              <h2 className="font-extrabold text-[#1A1A2E] text-3xl md:text-4xl mb-3 leading-tight">
                 We&apos;d Love to Hear From You
               </h2>
-              <p className="text-[#555577] text-sm md:text-base leading-relaxed mb-8 max-w-lg">
-                Whether you have a question about our services, want to discuss a project, or just want to learn more — our team is ready to help.
+              <p className="text-[#555577] text-sm leading-relaxed mb-8 max-w-lg">
+                Whether you have a question about our services, want to discuss a project, or just
+                want to learn more — our team is ready to help.
               </p>
 
-              {/* Info Cards Stack */}
+              {/* Info Cards */}
               <div className="flex flex-col gap-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-white border border-[#1A3C6E]/[0.08] rounded-2xl p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(26,60,110,0.08)] group"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1A3C6E] to-[#2E6DB4] flex justify-center items-center shrink-0 shadow-md">
-                    <FaEnvelope className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] uppercase tracking-wider text-[#94a3b8] font-bold mb-1">
-                      EMAIL US
+                {[
+                  {
+                    icon: FaEnvelope,
+                    label: "Email Us",
+                    content: (
+                      <a href="mailto:hello@ai1team.com" className="font-semibold text-[#1A3C6E] text-sm hover:text-[#2E6DB4] transition-colors">
+                        hello@ai1team.com
+                      </a>
+                    ),
+                    delay: 0,
+                  },
+                  {
+                    icon: FaLocationDot,
+                    label: "Our Location",
+                    content: (
+                      <div className="font-semibold text-[#1A3C6E] text-sm leading-snug">
+                        30 N Gould St, Sheridan,<br />Wyoming 82801, USA
+                      </div>
+                    ),
+                    delay: 0.1,
+                  },
+                  {
+                    icon: FaClock,
+                    label: "Response Time",
+                    content: (
+                      <>
+                        <div className="font-semibold text-[#1A3C6E] text-sm">Within 24 Hours</div>
+                        <div className="text-xs text-[#94a3b8] mt-0.5 font-medium">Mon – Fri, 9am – 6pm CET</div>
+                      </>
+                    ),
+                    delay: 0.2,
+                  },
+                ].map(({ icon: Icon, label, content, delay }) => (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay }}
+                    className="bg-white border border-[#1A3C6E]/[0.08] rounded-2xl p-5 flex items-start gap-4
+                      transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(26,60,110,0.08)]"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#1A3C6E] to-[#2E6DB4] flex justify-center items-center shrink-0">
+                      <Icon className="text-white text-base" />
                     </div>
-                    <a href="mailto:hello@ai1team.com" className="font-semibold text-[#1A3C6E] text-sm hover:text-[#2E6DB4] transition-colors">
-                      hello@ai1team.com
-                    </a>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-white border border-[#1A3C6E]/[0.08] rounded-2xl p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(26,60,110,0.08)]"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1A3C6E] to-[#2E6DB4] flex justify-center items-center shrink-0 shadow-md">
-                    <FaLocationDot className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] uppercase tracking-wider text-[#94a3b8] font-bold mb-1">
-                      OUR LOCATION
+                    <div>
+                      <div className="text-[10px] uppercase tracking-wider text-[#94a3b8] font-bold mb-1">
+                        {label}
+                      </div>
+                      {content}
                     </div>
-                    <div className="font-semibold text-[#1A3C6E] text-sm leading-snug">
-                      30 N Gould St, Sheridan, <br /> Wyoming 82801, USA
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-white border border-[#1A3C6E]/[0.08] rounded-2xl p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(26,60,110,0.08)]"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1A3C6E] to-[#2E6DB4] flex justify-center items-center shrink-0 shadow-md">
-                    <FaClock className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] uppercase tracking-wider text-[#94a3b8] font-bold mb-1">
-                      RESPONSE TIME
-                    </div>
-                    <div className="font-semibold text-[#1A3C6E] text-sm">
-                      Within 24 Hours
-                    </div>
-                    <div className="text-xs text-[#94a3b8] mt-1 font-medium">
-                      Mon - Fri, 9am - 6pm CET
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Availability Badge */}
-              <div className="bg-[#22c55e]/[0.08] border border-[#22c55e]/20 text-[#16a34a] text-sm font-medium px-4 py-2.5 rounded-xl mt-6 w-fit flex items-center gap-2">
-                🟢 Currently Available for New Projects
+              {/* Availability badge */}
+              <div className="bg-[#22c55e]/[0.08] border border-[#22c55e]/20 text-[#16a34a] text-sm font-semibold px-4 py-2.5 rounded-xl mt-6 w-fit flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse shrink-0" />
+                Currently Available for New Projects
               </div>
 
               {/* Social Media */}
               <div className="mt-10">
-                <div className="text-xs uppercase tracking-widest text-[#94a3b8] font-bold mb-4">
-                  FOLLOW US
+                <div className="text-[10px] uppercase tracking-widest text-[#94a3b8] font-bold mb-4">
+                  Follow Us
                 </div>
                 <div className="flex items-center gap-3">
                   {[
                     { icon: FaLinkedinIn, link: "https://www.linkedin.com/company/ai1team/", label: "LinkedIn" },
-                    { icon: FaXTwitter, link: "#", label: "X (Twitter)" },
-                    { icon: FaInstagram, link: "#", label: "Instagram" },
-                    { icon: FaFacebook, link: "#", label: "Facebook" }
-                  ].map((social, idx) => (
+                    { icon: FaXTwitter,   link: "#", label: "X (Twitter)" },
+                    { icon: FaInstagram,  link: "#", label: "Instagram" },
+                    { icon: FaFacebook,   link: "#", label: "Facebook" },
+                  ].map(({ icon: Icon, link, label }) => (
                     <a
-                      key={idx}
-                      href={social.link}
+                      key={label}
+                      href={link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={social.label}
-                      className="w-11 h-11 bg-white border border-[#1A3C6E]/[0.08] rounded-xl flex items-center justify-center text-[#555577] transition-all duration-300 hover:bg-[#1A3C6E] hover:text-white hover:shadow-[0_0_16px_rgba(26,60,110,0.25)] hover:-translate-y-1 group"
+                      aria-label={label}
+                      className="w-11 h-11 bg-white border border-[#1A3C6E]/[0.08] rounded-xl flex items-center justify-center
+                        text-[#555577] transition-all duration-300
+                        hover:bg-[#1A3C6E] hover:text-white hover:shadow-[0_0_16px_rgba(26,60,110,0.25)] hover:-translate-y-1"
                     >
-                      <social.icon className="text-[18px]" />
+                      <Icon className="text-[17px]" />
                     </a>
                   ))}
                 </div>
               </div>
-
             </div>
 
-            {/* Right Column - Form */}
+            {/* Right Column — Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -240,31 +333,49 @@ const ContactClient = () => {
             >
               <ContactForm />
             </motion.div>
-
           </div>
         </div>
       </section>
 
-      {/* 3. FAQ STRIP */}
+      {/* ── 4. FAQ ── */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="font-bold text-[#1A3C6E] text-3xl">Frequently Asked Questions</h2>
-            <p className="text-[#555577] text-base mt-3">
-              Quick answers before you reach out
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-10"
+          >
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2E6DB4] mb-3 block">
+              Quick Answers
+            </span>
+            <h2 className="font-extrabold text-[#1A1A2E] text-3xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-[#555577] text-sm mt-3">
+              Before you reach out — common questions answered.
             </p>
-          </div>
-          <div className="border-t border-[#1A3C6E]/[0.08]">
+          </motion.div>
+
+          <div className="space-y-3">
             {faqs.map((faq, index) => (
-              <FAQItem key={index} question={faq.q} answer={faq.a} />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+              >
+                <FAQItem question={faq.q} answer={faq.a} />
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. CTA BANNER */}
+      {/* ── 5. CTA ── */}
       <CTABanner />
-
     </div>
   );
 };

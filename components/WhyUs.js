@@ -1,55 +1,107 @@
 "use client";
 
-import { FaRobot, FaChartLine, FaBullseye } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { FaCheck, FaTimes } from "react-icons/fa";
 
-const values = [
-  {
-    icon: <FaRobot />,
-    title: "AI-Driven Results",
-    description: "We use cutting-edge AI tools to deliver automation systems that save your business time and money."
-  },
-  {
-    icon: <FaChartLine />,
-    title: "Data-First Approach",
-    description: "Every decision is backed by real-time data and analytics, ensuring your workflows are always optimized."
-  },
-  {
-    icon: <FaBullseye />,
-    title: "Tailored Strategies",
-    description: "No generic templates. Every automation system is custom-built around your specific business processes."
-  }
+const rows = [
+  "Custom-built automation — no generic templates",
+  "AI-first workflows from day one",
+  "Measurable ROI tracked from the start",
+  "Transparent process with full visibility",
+  "Systems that run 24/7 without extra staff",
+  "No long-term retainer lock-in required",
+  "Dedicated team from build through launch",
 ];
 
 const WhyUs = () => {
   return (
-    <section className="py-24 bg-[#F0F6FF]" id="why-us">
-      <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="section-heading">Why Businesses Choose AI1team</h2>
-          <div className="w-20 h-1 bg-accent mx-auto mt-4"></div>
-        </div>
+    <section className="py-24 bg-[#0f0f17] relative overflow-hidden" id="why-us">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {values.map((value, index) => (
+      {/* Background orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 -left-16 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(26,60,110,0.45)_0%,transparent_65%)]" />
+        <div className="absolute -bottom-24 -right-16 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.12)_0%,transparent_65%)]" />
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#60a5fa] mb-3 block">
+            The Difference
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+            AI1team vs. Traditional Agency
+          </h2>
+          <p className="text-[#94a3b8] mt-4 max-w-lg mx-auto text-sm leading-relaxed">
+            Most agencies give you a strategy deck. We give you a running system.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="rounded-3xl border border-white/[0.07] overflow-hidden shadow-[0_0_60px_rgba(46,109,180,0.1)]"
+        >
+          {/* Table header */}
+          <div className="grid grid-cols-[1fr_auto_auto] bg-[#16161f] border-b border-white/[0.07]">
+            <div className="py-4 px-6 text-xs font-bold uppercase tracking-widest text-[#94a3b8]">
+              Feature
+            </div>
+            <div className="py-4 px-6 text-xs font-bold uppercase tracking-widest text-[#60a5fa] text-center w-32 md:w-44">
+              AI1team
+            </div>
+            <div className="py-4 px-6 text-xs font-bold uppercase tracking-widest text-[#94a3b8]/50 text-center w-32 md:w-44">
+              Traditional
+            </div>
+          </div>
+
+          {/* Rows */}
+          {rows.map((row, idx) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-white p-10 rounded-3xl shadow-sm border border-blue-100 hover:shadow-md transition-shadow group"
+              key={row}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.07 }}
+              className={`grid grid-cols-[1fr_auto_auto] items-center
+                border-b border-white/[0.04] last:border-b-0
+                hover:bg-white/[0.025] transition-colors duration-200
+                ${idx % 2 === 0 ? "bg-[#0f0f17]" : "bg-[#13131b]"}`}
             >
-              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl text-accent mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                {value.icon}
+              <div className="py-4 px-6 text-sm text-[#cbd5e1] leading-snug">
+                {row}
               </div>
-              <h3 className="text-2xl font-bold text-darkText mb-4">{value.title}</h3>
-              <p className="text-lightText leading-relaxed">
-                {value.description}
-              </p>
+              <div className="py-4 px-6 flex justify-center w-32 md:w-44">
+                <span className="w-7 h-7 rounded-full bg-[#2E6DB4]/20 border border-[#2E6DB4]/40 flex items-center justify-center">
+                  <FaCheck className="text-[#60a5fa] text-[10px]" />
+                </span>
+              </div>
+              <div className="py-4 px-6 flex justify-center w-32 md:w-44">
+                <span className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                  <FaTimes className="text-[#94a3b8]/50 text-[10px]" />
+                </span>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center text-[#94a3b8]/50 text-xs mt-6"
+        >
+          *Based on common agency delivery models. Results vary per engagement.
+        </motion.p>
       </div>
     </section>
   );

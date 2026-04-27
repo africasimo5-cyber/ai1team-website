@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { FaLock, FaClock, FaCheckCircle, FaSpinner } from "react-icons/fa";
+import { FaLock, FaCheckCircle, FaSpinner, FaBolt, FaTimesCircle, FaChevronDown } from "react-icons/fa";
 
 const ContactForm = () => {
   const formRef = useRef();
@@ -125,22 +125,25 @@ const ContactForm = () => {
             <label htmlFor="service" className="block text-sm font-medium text-[#1A3C6E] mb-1.5">
               Service Interested In
             </label>
-            <select
-              name="service"
-              id="service"
-              className="w-full bg-[#F8FAFF] border border-[#1A3C6E]/[0.12] rounded-xl px-4 py-3 text-[#1A1A2E] text-sm focus:bg-white focus:outline-none focus:border-[#2E6DB4] focus:shadow-[0_0_0_3px_rgba(46,109,180,0.12)] transition-all duration-200 appearance-none"
-            >
-              <option value="">Select a service...</option>
-              <option value="Lead Generation & Nurturing">Lead Generation & Nurturing</option>
-              <option value="CRM Setup (GoHighLevel)">CRM Setup (GoHighLevel)</option>
-              <option value="Workflow Automation">Workflow Automation</option>
-              <option value="AI-Powered Chatbots & Support">AI-Powered Chatbots & Support</option>
-              <option value="Data Analytics & Reporting">Data Analytics & Reporting</option>
-              <option value="Custom Integrations">Custom Integrations</option>
-              <option value="AIOS">AIOS</option>
-              <option value="Audit Service">Audit Service</option>
-              <option value="Other">Other</option>
-            </select>
+            <div className="relative">
+              <select
+                name="service"
+                id="service"
+                className="w-full bg-[#F8FAFF] border border-[#1A3C6E]/[0.12] rounded-xl px-4 py-3 pr-10 text-[#1A1A2E] text-sm focus:bg-white focus:outline-none focus:border-[#2E6DB4] focus:shadow-[0_0_0_3px_rgba(46,109,180,0.12)] transition-all duration-200 appearance-none cursor-pointer"
+              >
+                <option value="">Select a service...</option>
+                <option value="Lead Generation & Nurturing">Lead Generation &amp; Nurturing</option>
+                <option value="CRM Setup (GoHighLevel)">CRM Setup (GoHighLevel)</option>
+                <option value="Workflow Automation">Workflow Automation</option>
+                <option value="AI-Powered Chatbots & Support">AI-Powered Chatbots &amp; Support</option>
+                <option value="Data Analytics & Reporting">Data Analytics &amp; Reporting</option>
+                <option value="Custom Integrations">Custom Integrations</option>
+                <option value="AIOS">AIOS</option>
+                <option value="Audit Service">Audit Service</option>
+                <option value="Other">Other</option>
+              </select>
+              <FaChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#94a3b8] text-[10px] pointer-events-none" />
+            </div>
           </div>
         </div>
 
@@ -149,18 +152,21 @@ const ContactForm = () => {
           <label htmlFor="budget" className="block text-sm font-medium text-[#1A3C6E] mb-1.5">
             Budget Range
           </label>
-          <select
-            name="budget"
-            id="budget"
-            className="w-full bg-[#F8FAFF] border border-[#1A3C6E]/[0.12] rounded-xl px-4 py-3 text-[#1A1A2E] text-sm focus:bg-white focus:outline-none focus:border-[#2E6DB4] focus:shadow-[0_0_0_3px_rgba(46,109,180,0.12)] transition-all duration-200 appearance-none"
-          >
-            <option value="">Select a range...</option>
-            <option value="Under $500">Under $500</option>
-            <option value="$500 - $1,000">$500 - $1,000</option>
-            <option value="$1,000 - $5,000">$1,000 - $5,000</option>
-            <option value="$5,000+">$5,000+</option>
-            <option value="Let's Discuss">Let&apos;s Discuss</option>
-          </select>
+          <div className="relative">
+            <select
+              name="budget"
+              id="budget"
+              className="w-full bg-[#F8FAFF] border border-[#1A3C6E]/[0.12] rounded-xl px-4 py-3 pr-10 text-[#1A1A2E] text-sm focus:bg-white focus:outline-none focus:border-[#2E6DB4] focus:shadow-[0_0_0_3px_rgba(46,109,180,0.12)] transition-all duration-200 appearance-none cursor-pointer"
+            >
+              <option value="">Select a range...</option>
+              <option value="Under $500">Under $500</option>
+              <option value="$500 - $1,000">$500 – $1,000</option>
+              <option value="$1,000 - $5,000">$1,000 – $5,000</option>
+              <option value="$5,000+">$5,000+</option>
+              <option value="Let's Discuss">Let&apos;s Discuss</option>
+            </select>
+            <FaChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#94a3b8] text-[10px] pointer-events-none" />
+          </div>
         </div>
 
         {/* Row 4 */}
@@ -179,8 +185,9 @@ const ContactForm = () => {
         </div>
 
         {status === "error" && (
-          <div className="text-red-500 text-sm mt-2 font-medium">
-            ❌ {errorMsg || "Something went wrong. Please try again or email us directly."}
+          <div className="flex items-center gap-2 text-red-500 text-sm font-medium bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+            <FaTimesCircle className="shrink-0 text-base" />
+            {errorMsg || "Something went wrong. Please try again or email us directly."}
           </div>
         )}
 
@@ -203,8 +210,8 @@ const ContactForm = () => {
           <div className="flex items-center gap-1.5 text-xs text-[#94a3b8]">
             <FaLock className="text-[10px]" /> 100% Confidential
           </div>
-          <div className="flex items-center gap-1 text-xs text-[#94a3b8]">
-            <span className="text-[10px]">⚡</span> 24hr Response
+          <div className="flex items-center gap-1.5 text-xs text-[#94a3b8]">
+            <FaBolt className="text-[10px]" /> 24hr Response
           </div>
           <div className="flex items-center gap-1.5 text-xs text-[#94a3b8]">
             <FaCheckCircle className="text-[10px]" /> No Obligation
