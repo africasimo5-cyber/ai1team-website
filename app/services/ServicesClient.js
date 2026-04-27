@@ -598,7 +598,7 @@ const ServicesClient = () => {
                 plan tailored specifically to your goals.
               </p>
               <Link
-                href="/contact"
+                href="/contact#book-a-call"
                 className="bg-[#2E6DB4] hover:bg-white hover:text-[#1A3C6E] border-2 border-transparent hover:border-white text-white font-bold px-12 py-5 rounded-full text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(46,109,180,0.6)] inline-block"
               >
                 Book a Free Discovery Call

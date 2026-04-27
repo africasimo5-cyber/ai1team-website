@@ -51,15 +51,17 @@ const WhyUs = () => {
           className="rounded-3xl border border-white/[0.07] overflow-hidden shadow-[0_0_60px_rgba(46,109,180,0.1)]"
         >
           {/* Table header */}
-          <div className="grid grid-cols-[1fr_auto_auto] bg-[#16161f] border-b border-white/[0.07]">
-            <div className="py-4 px-6 text-xs font-bold uppercase tracking-widest text-[#94a3b8]">
+          <div className="grid grid-cols-[1fr_56px_56px] sm:grid-cols-[1fr_10rem_10rem] bg-[#16161f] border-b border-white/[0.07]">
+            <div className="py-4 px-3 md:px-6 text-xs font-bold uppercase tracking-widest text-[#94a3b8]">
               Feature
             </div>
-            <div className="py-4 px-6 text-xs font-bold uppercase tracking-widest text-[#60a5fa] text-center w-32 md:w-44">
-              AI1team
+            <div className="py-4 px-1 md:px-6 text-xs font-bold uppercase tracking-widest text-[#60a5fa] text-center">
+              <span className="hidden sm:inline">AI1team</span>
+              <span className="sm:hidden leading-tight block text-[10px]">AI1<br/>team</span>
             </div>
-            <div className="py-4 px-6 text-xs font-bold uppercase tracking-widest text-[#94a3b8]/50 text-center w-32 md:w-44">
-              Traditional
+            <div className="py-4 px-1 md:px-6 text-xs font-bold uppercase tracking-widest text-[#94a3b8]/50 text-center">
+              <span className="hidden sm:inline">Traditional</span>
+              <span className="sm:hidden leading-tight block text-[10px]">Trad.<br/>Agency</span>
             </div>
           </div>
 
@@ -71,20 +73,20 @@ const WhyUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.07 }}
-              className={`grid grid-cols-[1fr_auto_auto] items-center
+              className={`grid grid-cols-[1fr_56px_56px] sm:grid-cols-[1fr_10rem_10rem] items-center
                 border-b border-white/[0.04] last:border-b-0
                 hover:bg-white/[0.025] transition-colors duration-200
                 ${idx % 2 === 0 ? "bg-[#0f0f17]" : "bg-[#13131b]"}`}
             >
-              <div className="py-4 px-6 text-sm text-[#cbd5e1] leading-snug">
+              <div className="py-3 px-3 md:px-6 text-xs md:text-sm text-[#cbd5e1] leading-snug">
                 {row}
               </div>
-              <div className="py-4 px-6 flex justify-center w-32 md:w-44">
+              <div className="py-3 md:py-4 flex justify-center items-center">
                 <span className="w-7 h-7 rounded-full bg-[#2E6DB4]/20 border border-[#2E6DB4]/40 flex items-center justify-center">
                   <FaCheck className="text-[#60a5fa] text-[10px]" />
                 </span>
               </div>
-              <div className="py-4 px-6 flex justify-center w-32 md:w-44">
+              <div className="py-3 md:py-4 flex justify-center items-center">
                 <span className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                   <FaTimes className="text-[#94a3b8]/50 text-[10px]" />
                 </span>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
+import CalendlyWidget from "@/components/CalendlyWidget";
 import CTABanner from "@/components/CTABanner";
 import { FaLinkedinIn, FaXTwitter, FaInstagram, FaFacebook, FaLocationDot } from "react-icons/fa6";
 import { FaEnvelope, FaClock, FaChevronDown, FaCheck, FaFileAlt, FaPhoneAlt, FaRocket } from "react-icons/fa";
@@ -213,7 +214,41 @@ const ContactClient = () => {
         </div>
       </section>
 
-      {/* ── 3. Main Contact Section ── */}
+      {/* ── 3. Book a Call ── */}
+      <section className="bg-[#F0F6FF] py-16 px-6" id="book-a-call">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-10"
+          >
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2E6DB4] mb-3 block">
+              Schedule a Meeting
+            </span>
+            <h2 className="font-extrabold text-[#1A1A2E] text-3xl md:text-4xl mb-3 leading-tight">
+              Book Your Free Discovery Call
+            </h2>
+            <p className="text-[#555577] text-sm max-w-lg mx-auto leading-relaxed">
+              Pick a time that works for you. We&apos;ll learn about your business and map out
+              the best automation strategy — completely free, no obligation.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-white rounded-3xl border border-[#1A3C6E]/[0.08] shadow-sm overflow-hidden p-2 md:p-4"
+          >
+            <CalendlyWidget />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 5. Main Contact Section ── */}
       <section className="bg-[#F0F6FF] py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
@@ -337,7 +372,7 @@ const ContactClient = () => {
         </div>
       </section>
 
-      {/* ── 4. FAQ ── */}
+      {/* ── 6. FAQ ── */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -374,7 +409,7 @@ const ContactClient = () => {
         </div>
       </section>
 
-      {/* ── 5. CTA ── */}
+      {/* ── 7. CTA ── */}
       <CTABanner />
     </div>
   );
