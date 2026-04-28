@@ -5,12 +5,12 @@ import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 
 const tools = [
-  { name: "Make.com",      color: "from-[#6d28d9] to-[#7c3aed]" },
-  { name: "GoHighLevel",   color: "from-[#0ea5e9] to-[#2E6DB4]" },
-  { name: "Zapier",        color: "from-[#ff4a00] to-[#ff6a2f]" },
-  { name: "n8n",           color: "from-[#e2523d] to-[#c94030]" },
-  { name: "OpenAI",        color: "from-[#10a37f] to-[#0d8a6b]" },
-  { name: "Claude AI",     color: "from-[#c96a2e] to-[#a85524]" },
+  { name: "Claude AI", color: "from-[#c96a2e] to-[#a85524]" },
+  { name: "Make.com", color: "from-[#6d28d9] to-[#7c3aed]" },
+  { name: "GoHighLevel", color: "from-[#0ea5e9] to-[#2E6DB4]" },
+  { name: "Zapier", color: "from-[#ff4a00] to-[#ff6a2f]" },
+  { name: "n8n", color: "from-[#e2523d] to-[#c94030]" },
+  { name: "OpenAI", color: "from-[#10a37f] to-[#0d8a6b]" },
 ];
 
 const HeroSection = () => {

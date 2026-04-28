@@ -68,7 +68,8 @@ const Footer = () => {
                 { label: "Services", href: "/services" },
                 { label: "About", href: "/about" },
                 { label: "Contact", href: "/contact" },
-                { label: "Terms & Privacy", href: "/terms" }
+                { label: "Terms & Conditions", href: "/terms" },
+                { label: "Privacy Policy", href: "/privacy" }
               ].map((link, index) => (
                 <li key={index}>
                   <Link 
@@ -170,7 +171,7 @@ const Footer = () => {
             © {new Date().getFullYear()} AI1team. All rights reserved.
           </p>
           <div className="flex gap-6 text-[#94a3b8] text-sm">
-            <Link href="/terms" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
