@@ -9,23 +9,23 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa";
 
 const serviceCategories = [
-  { label: "AI Agents & Chatbots",    href: "/services#ai-agents" },
-  { label: "Social Media & Content",  href: "/services#social-media" },
-  { label: "Business Automation",     href: "/services#business-automation" },
-  { label: "Claude AI Services",      href: "/services#claude-ai" },
+  { label: "AI Agents & Chatbots", href: "/services#ai-agents" },
+  { label: "Social Media & Content", href: "/services#social-media" },
+  { label: "Business Automation", href: "/services#business-automation" },
+  { label: "Claude AI Services", href: "/services#claude-ai" },
 ];
 
 const navLinks = [
-  { name: "Home",     href: "/" },
+  { name: "Home", href: "/" },
   { name: "Services", href: "/services", hasDropdown: true },
-  { name: "About",    href: "/about" },
-  { name: "Contact",  href: "/contact" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen]             = useState(false);
-  const [scrolled, setScrolled]             = useState(false);
-  const [servicesHover, setServicesHover]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [servicesHover, setServicesHover] = useState(false);
   const [servicesAccordion, setServicesAccordion] = useState(false);
   const pathname = usePathname();
 

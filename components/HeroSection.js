@@ -4,15 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 
-const tools = [
-  { name: "Claude AI", color: "from-[#c96a2e] to-[#a85524]" },
-  { name: "Make.com", color: "from-[#6d28d9] to-[#7c3aed]" },
-  { name: "GoHighLevel", color: "from-[#0ea5e9] to-[#2E6DB4]" },
-  { name: "Zapier", color: "from-[#ff4a00] to-[#ff6a2f]" },
-  { name: "n8n", color: "from-[#e2523d] to-[#c94030]" },
-  { name: "OpenAI", color: "from-[#10a37f] to-[#0d8a6b]" },
-];
-
 const HeroSection = () => {
   return (
     <section
@@ -96,29 +87,6 @@ const HeroSection = () => {
             </Link>
           </div>
 
-          {/* Tech stack strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-14"
-          >
-            <p className="text-xs text-center mb-5 text-white/35 uppercase tracking-widest font-semibold">
-              Powered by industry-leading tools
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-3">
-              {tools.map(({ name, color }) => (
-                <div
-                  key={name}
-                  className={`inline-flex items-center gap-1.5 bg-white/6 border border-white/10
-                    rounded-lg px-4 py-2 backdrop-blur-sm`}
-                >
-                  <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${color} shrink-0`} />
-                  <span className="text-white/55 text-xs font-medium">{name}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

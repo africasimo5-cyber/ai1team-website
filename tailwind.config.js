@@ -7,6 +7,25 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        marquee: {
+          "0%":   { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-left": {
+          "0%":   { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-right": {
+          "0%":   { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 18s linear infinite",
+        "marquee-left":  "marquee-left 30s linear infinite",
+        "marquee-right": "marquee-right 30s linear infinite",
+      },
       colors: {
         primary:    "#1A3C6E",   // Deep navy blue
         accent:     "#2E6DB4",   // Electric blue

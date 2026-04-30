@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
+    ],
     localPatterns: [
-      { pathname: '/**' },
+      { pathname: "/**" },
     ],
   },
 };
