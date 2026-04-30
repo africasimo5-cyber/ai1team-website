@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FaCalendarCheck } from "react-icons/fa";
 
-const CTABanner = ({ bgImage }) => {
+const CTABanner = ({ bgImage, calButton }) => {
   return (
     <section
       className="py-20 px-6 relative bg-cover bg-center"
@@ -56,12 +57,24 @@ const CTABanner = ({ bgImage }) => {
             </div>
           </div>
 
-          <Link
-            href="/contact"
-            className="bg-[#2E6DB4] hover:bg-[#1A3C6E] border-2 border-white/20 hover:border-white/40 text-white font-semibold px-10 py-4 rounded-full mt-10 mx-auto block w-fit hover:shadow-[0_0_30px_rgba(46,109,180,0.5)] transition-all duration-300"
-          >
-            Contact Us Today
-          </Link>
+          {calButton ? (
+            <button
+              data-cal-link="emmanuel-ai1team/15min"
+              data-cal-namespace="15min"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              className="inline-flex items-center gap-2.5 bg-[#2E6DB4] hover:bg-[#1A3C6E] border-2 border-white/20 hover:border-white/40 text-white font-semibold px-10 py-4 rounded-full mt-10 mx-auto hover:shadow-[0_0_30px_rgba(46,109,180,0.5)] transition-all duration-300 cursor-pointer"
+            >
+              <FaCalendarCheck className="shrink-0" />
+              Book Your Free Discovery Call
+            </button>
+          ) : (
+            <Link
+              href="/contact"
+              className="bg-[#2E6DB4] hover:bg-[#1A3C6E] border-2 border-white/20 hover:border-white/40 text-white font-semibold px-10 py-4 rounded-full mt-10 mx-auto block w-fit hover:shadow-[0_0_30px_rgba(46,109,180,0.5)] transition-all duration-300"
+            >
+              Contact Us Today
+            </Link>
+          )}
 
           <p className="text-white/35 text-[10px] md:text-xs mt-4">
             No commitment required. Free discovery call.
