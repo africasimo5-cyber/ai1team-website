@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
 import PageTransition from "@/components/PageTransition";
 import JsonLd from "@/components/JsonLd";
+import TawkChat from "@/components/TawkChat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -125,6 +126,7 @@ export default function RootLayout({ children }) {
           </Suspense>
         </main>
         <Footer />
+        <TawkChat />
       </body>
     </html>
   );
