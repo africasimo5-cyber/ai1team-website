@@ -1,11 +1,50 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaLinkedinIn, FaXTwitter, FaInstagram, FaFacebook, FaLocationDot } from "react-icons/fa6";
 import { FaEnvelope, FaClock } from "react-icons/fa";
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        window.location.href = '/thank-you';
+      } else {
+        console.error('[subscribe] API error response:', data);
+        setError('Something went wrong. Please try again.');
+        setLoading(false);
+      }
+    } catch (err) {
+      console.error('[subscribe] Fetch error:', err);
+      setError('Something went wrong. Please try again.');
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="w-full relative bg-[#111827]">
       {/* Top Gradient Accent Line */}
@@ -147,19 +186,25 @@ const Footer = () => {
             <p className="text-[#94a3b8] text-sm leading-relaxed mb-5">
               Get the latest AI automation insights, case studies, and strategies delivered directly to your inbox.
             </p>
-            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-3" onSubmit={handleSubscribe}>
               <input
                 type="email"
                 placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#2E6DB4] transition-colors"
                 required
               />
               <button
                 type="submit"
-                className="w-full bg-[#2E6DB4] hover:bg-[#1A3C6E] border border-transparent hover:border-[#2E6DB4]/50 text-white text-sm font-medium py-3 rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(46,109,180,0.15)] hover:shadow-[0_0_20px_rgba(46,109,180,0.3)]"
+                disabled={loading}
+                className="w-full bg-[#2E6DB4] hover:bg-[#1A3C6E] border border-transparent hover:border-[#2E6DB4]/50 text-white text-sm font-medium py-3 rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(46,109,180,0.15)] hover:shadow-[0_0_20px_rgba(46,109,180,0.3)] disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Subscribe to Newsletter
+                {loading ? 'Subscribing...' : 'Subscribe'}
               </button>
+              {error && (
+                <p style={{ color: '#f87171', fontSize: '12px', marginTop: '6px' }}>{error}</p>
+              )}
             </form>
           </div>
 
