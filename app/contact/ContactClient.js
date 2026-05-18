@@ -358,9 +358,9 @@ const ContactClient = () => {
             <div className="flex items-center gap-3 justify-center">
               {[
                 { icon: FaLinkedinIn, link: "https://www.linkedin.com/company/ai1team/", label: "LinkedIn" },
-                { icon: FaXTwitter, link: "#", label: "X (Twitter)" },
-                { icon: FaInstagram, link: "#", label: "Instagram" },
-                { icon: FaFacebook, link: "#", label: "Facebook" },
+                { icon: FaXTwitter, link: "https://x.com/AI1Team/", label: "X (Twitter)" },
+                { icon: FaInstagram, link: "https://www.instagram.com/ai1team.automation.agency/", label: "Instagram" },
+                { icon: FaFacebook, link: "https://www.facebook.com/profile.php?id=61589291811206/", label: "Facebook" },
               ].map(({ icon: Icon, link, label }) => (
                 <a
                   key={label}
