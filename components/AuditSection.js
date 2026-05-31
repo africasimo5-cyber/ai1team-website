@@ -16,6 +16,7 @@ const plans = [
       "30-min strategy call included",
     ],
     button: "Book Growth Audit",
+    stripeLink: "https://buy.stripe.com/28E3cn9toeeY2ireQU3oA00",
     popular: false,
     enterprise: false,
   },
@@ -30,6 +31,7 @@ const plans = [
       "First-month support priority",
     ],
     button: "Book Deep Audit",
+    stripeLink: "https://buy.stripe.com/eVq9AL0WS6Mw5uDgZ23oA01",
     popular: true,
     enterprise: false,
   },
@@ -167,18 +169,29 @@ const AuditSection = () => {
                 ))}
               </ul>
 
-              <button
-                data-cal-link="emmanuel-ai1team/15min"
-                data-cal-namespace="15min"
-                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center cursor-pointer ${
-                  plan.enterprise
-                    ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
-                    : "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
-                }`}
-              >
-                {plan.button}
-              </button>
+              {plan.stripeLink ? (
+                <a
+                  href={plan.stripeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${
+                    plan.popular
+                      ? "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
+                      : "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
+                  }`}
+                >
+                  {plan.button}
+                </a>
+              ) : (
+                <button
+                  data-cal-link="emmanuel-ai1team/15min"
+                  data-cal-namespace="15min"
+                  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                  className="relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center cursor-pointer bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
+                >
+                  {plan.button}
+                </button>
+              )}
             </motion.div>
           ))}
         </motion.div>
