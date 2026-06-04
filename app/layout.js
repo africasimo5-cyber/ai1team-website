@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
@@ -127,6 +128,18 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         <TawkChat />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NHBHK2R8P8"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NHBHK2R8P8');
+          `}
+        </Script>
       </body>
     </html>
   );
