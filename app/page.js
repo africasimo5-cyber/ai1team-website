@@ -87,7 +87,7 @@ const faqSchema = {
       name: "How much does it cost to get started?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We start with a paid audit ($97–$397) so you know exactly what needs automating and what the ROI looks like before committing to a full build. No surprise costs — everything is scoped upfront.",
+        text: "We start with a paid audit ($197–$997) so you know exactly what needs automating and what the ROI looks like before committing to a full build. No surprise costs — everything is scoped upfront.",
       },
     },
     {

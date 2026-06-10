@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "How much does it cost to get started?",
-    a: "We start with a paid audit ($97–$397) so you know exactly what needs automating and what the ROI looks like before committing to a full build. No surprise costs — everything is scoped upfront.",
+    a: "We start with a paid audit ($197–$997) so you know exactly what needs automating and what the ROI looks like before committing to a full build. No surprise costs — everything is scoped upfront.",
   },
   {
     q: "What happens if something breaks after launch?",

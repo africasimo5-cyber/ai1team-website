@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
 import { motion } from "framer-motion";
+import { FaCircleCheck } from "react-icons/fa6";
 
 const plans = [
   {
     name: "Growth Audit",
     price: "$197",
-    bestFor: "Growing businesses ready to scale",
+    bestFor: "Solopreneurs & small teams getting started with automation",
     includes: [
       "Full business process review",
       "Custom automation roadmap",
@@ -16,14 +16,14 @@ const plans = [
       "30-min strategy call included",
     ],
     button: "Book Growth Audit",
-    stripeLink: "https://buy.stripe.com/28E3cn9toeeY2ireQU3oA00",
     popular: false,
     enterprise: false,
+    credit: null,
   },
   {
     name: "Deep Audit",
-    price: "$397",
-    bestFor: "Established businesses & teams",
+    price: "$597",
+    bestFor: "Growing businesses ready to scale",
     includes: [
       "Everything in Growth Audit",
       "1-hour strategy call",
@@ -31,9 +31,24 @@ const plans = [
       "First-month support priority",
     ],
     button: "Book Deep Audit",
-    stripeLink: "https://buy.stripe.com/eVq9AL0WS6Mw5uDgZ23oA01",
     popular: true,
     enterprise: false,
+    credit: "$597 credited toward your build if you proceed to a paid automation project",
+  },
+  {
+    name: "Done-With-You Audit",
+    price: "$997",
+    bestFor: "Established businesses wanting a hands-on collaborative deep dive",
+    includes: [
+      "Everything in Deep Audit",
+      "2-hour strategy workshop (live session)",
+      "Recorded Loom walkthrough of full roadmap",
+      "Implementation Q&A session included",
+    ],
+    button: "Book Done-With-You Audit",
+    popular: false,
+    enterprise: false,
+    credit: "$997 credited toward your build if you proceed to a paid automation project",
   },
   {
     name: "Enterprise Audit",
@@ -41,7 +56,7 @@ const plans = [
     priceSubtext: "Tailored to your business scope",
     bestFor: "Large businesses, corporations & high-growth teams",
     includes: [
-      "Everything in Deep Audit",
+      "Everything in Done-With-You Audit",
       "Multi-department process review",
       "Full automation implementation roadmap",
       "Dedicated project manager assigned",
@@ -51,6 +66,7 @@ const plans = [
     button: "Request Enterprise Quote",
     popular: false,
     enterprise: true,
+    credit: null,
   },
 ];
 
@@ -84,11 +100,11 @@ const AuditSection = () => {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {plans.map((plan) => (
             <motion.div
@@ -98,11 +114,10 @@ const AuditSection = () => {
                 plan.popular
                   ? "bg-white scale-105 z-10 shadow-xl border-2 border-[#2E6DB4]"
                   : plan.enterprise
-                  ? "bg-[#0f0f17] border border-[#2E6DB4]/60 hover:shadow-[0_0_40px_rgba(46,109,180,0.25)] transition-shadow duration-300"
+                  ? "bg-[#0f0f17] border border-[rgba(46,109,180,0.3)] hover:shadow-[0_0_40px_rgba(46,109,180,0.25)] transition-shadow duration-300"
                   : "bg-white border border-gray-100 shadow-md"
               }`}
             >
-
               {/* Glow orb inside enterprise card */}
               {plan.enterprise && (
                 <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
@@ -114,7 +129,7 @@ const AuditSection = () => {
               {/* Most Popular badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-[#2E6DB4] text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                  <span className="bg-[#2E6DB4] text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
                     Most Popular
                   </span>
                 </div>
@@ -123,7 +138,7 @@ const AuditSection = () => {
               {/* Enterprise badge */}
               {plan.enterprise && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-[#1A3C6E] text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                  <span className="bg-[#1A3C6E] text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
                     Enterprise
                   </span>
                 </div>
@@ -156,97 +171,54 @@ const AuditSection = () => {
                 </p>
               </div>
 
-              <ul className="relative flex-1 space-y-3 mb-8">
+              <ul className="relative flex-1 space-y-3 mb-4">
                 {plan.includes.map((item) => (
                   <li key={item} className={`flex items-start gap-2 text-sm ${
                     plan.enterprise ? "text-[#cbd5e1]" : "text-[#1A1A2E]"
                   }`}>
-                    <span className={`mt-0.5 font-bold ${
-                      plan.popular ? "text-[#60a5fa]" : plan.enterprise ? "text-[#2E6DB4]" : "text-[#2E6DB4]"
-                    }`}>•</span>
+                    <span className="mt-0.5 font-bold text-[#2E6DB4]">•</span>
                     {item}
                   </li>
                 ))}
               </ul>
 
-              {plan.stripeLink ? (
-                <a
-                  href={plan.stripeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${
-                    plan.popular
-                      ? "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
-                      : "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
-                  }`}
-                >
-                  {plan.button}
-                </a>
-              ) : (
-                <button
-                  data-cal-link="emmanuel-ai1team/15min"
-                  data-cal-namespace="15min"
-                  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                  className="relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center cursor-pointer bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
-                >
-                  {plan.button}
-                </button>
+              {/* Credit line for Deep Audit and Done-With-You Audit */}
+              {plan.credit && (
+                <div className="relative flex items-start gap-2 bg-[#F0F6FF] border-l-[3px] border-[#2E6DB4] rounded-lg px-3 py-2 mt-3 mb-6">
+                  <FaCircleCheck className="text-[#2E6DB4] mt-0.5 shrink-0" size={13} />
+                  <span className="text-xs text-[#1A3C6E] font-semibold leading-snug">
+                    {plan.credit}
+                  </span>
+                </div>
               )}
+
+              {!plan.credit && <div className="mb-6" />}
+
+              <Link
+                href="/contact"
+                className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${
+                  plan.enterprise
+                    ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
+                    : "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
+                }`}
+              >
+                {plan.button}
+              </Link>
             </motion.div>
           ))}
         </motion.div>
 
         <p className="text-center text-[#555577] text-sm mt-12">
-          Not sure which audit is right for you? Whether you&apos;re a solo founder or an enterprise team,{" "}
+          Not sure which audit is right for you? Whether you&apos;re a solo founder or an enterprise
+          team, we&apos;ll help you find the right fit.{" "}
           <Link
             href="/contact"
             className="text-[#2E6DB4] hover:text-[#1A3C6E] underline underline-offset-2 transition-colors"
           >
-            we&apos;ll help you find the right fit. Contact us.
+            Contact us
           </Link>
         </p>
       </div>
-
-      <Script
-        id="cal-embed-audit"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function (C, A, L) {
-              let p = function (a, ar) { a.q.push(ar); };
-              let d = C.document;
-              C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
-                if (!cal.loaded) {
-                  cal.ns = {};
-                  cal.q = cal.q || [];
-                  d.head.appendChild(d.createElement("script")).src = A;
-                  cal.loaded = true;
-                }
-                if (ar[0] === L) {
-                  const api = function () { p(api, arguments); };
-                  const namespace = ar[1];
-                  api.q = api.q || [];
-                  if (typeof namespace === "string") {
-                    cal.ns[namespace] = cal.ns[namespace] || api;
-                    p(cal.ns[namespace], ar);
-                    p(cal, ["initNamespace", namespace]);
-                  } else p(cal, ar);
-                  return;
-                }
-                p(cal, ar);
-              };
-            })(window, "https://app.cal.com/embed/embed.js", "init");
-
-            Cal("init", "15min", { origin: "https://app.cal.com" });
-            Cal.ns["15min"]("ui", {
-              "hideEventTypeDetails": false,
-              "layout": "month_view"
-            });
-          `
-        }}
-      />
     </section>
   );
 };
