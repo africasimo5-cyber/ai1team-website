@@ -49,8 +49,8 @@ const nextSteps = [
 
 const BookingButton = () => (
   <button
-    data-cal-link="emmanuel-ai1team/15min"
-    data-cal-namespace="15min"
+    data-cal-link="emmanuel-ai1team/30-mins-free-discovery-call"
+    data-cal-namespace="30-mins-free-discovery-call"
     data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
     className="inline-flex items-center gap-2.5 bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 cursor-pointer"
   >
@@ -717,8 +717,8 @@ const ContactClient = () => {
               };
             })(window, "https://app.cal.com/embed/embed.js", "init");
 
-            Cal("init", "15min", { origin: "https://app.cal.com" });
-            Cal.ns["15min"]("ui", {
+            Cal("init", "30-mins-free-discovery-call", { origin: "https://app.cal.com" });
+            Cal.ns["30-mins-free-discovery-call"]("ui", {
               "hideEventTypeDetails": false,
               "layout": "month_view"
             });
