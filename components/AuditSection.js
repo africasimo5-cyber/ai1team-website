@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaCircleCheck } from "react-icons/fa6";
 
@@ -16,6 +17,7 @@ const plans = [
       "30-min strategy call included",
     ],
     button: "Book Growth Audit",
+    href: "https://buy.stripe.com/28E3cn9toeeY2ireQU3oA00",
     popular: false,
     enterprise: false,
     credit: null,
@@ -31,6 +33,7 @@ const plans = [
       "First-month support priority",
     ],
     button: "Book Deep Audit",
+    href: "https://buy.stripe.com/6oU9AL9to6MwaOX5gk3oA02",
     popular: true,
     enterprise: false,
     credit: "$597 credited toward your build if you proceed to a paid automation project",
@@ -46,6 +49,7 @@ const plans = [
       "Implementation Q&A session included",
     ],
     button: "Book Done-With-You Audit",
+    href: "https://buy.stripe.com/cNi5kvaxseeY9KT7os3oA03",
     popular: false,
     enterprise: false,
     credit: "$997 credited toward your build if you proceed to a paid automation project",
@@ -64,6 +68,8 @@ const plans = [
       "Custom SLA agreement",
     ],
     button: "Request Enterprise Quote",
+    href: "https://cal.com/emmanuel-ai1team/discovery",
+    calLink: "emmanuel-ai1team/discovery",
     popular: false,
     enterprise: true,
     credit: null,
@@ -85,6 +91,46 @@ const cardVariants = {
 };
 
 const AuditSection = () => {
+  useEffect(() => {
+    (function (C, A, L) {
+      let p = function (a, ar) {
+        a.q.push(ar);
+      };
+      let d = C.document;
+      C.Cal =
+        C.Cal ||
+        function () {
+          let cal = C.Cal;
+          let ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            let script = d.createElement("script");
+            script.src = A;
+            d.head.appendChild(script);
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () {
+              p(api, arguments);
+            };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    window.Cal("init", "discovery", { origin: "https://app.cal.com" });
+    window.Cal.ns.discovery("ui", { hideEventTypeDetails: false, layout: "month_view" });
+  }, []);
+
   return (
     <section className="py-24 bg-[#F0F6FF]" id="audit">
       <div className="max-w-7xl mx-auto px-6">
@@ -194,16 +240,33 @@ const AuditSection = () => {
 
               {!plan.credit && <div className="mb-6" />}
 
-              <Link
-                href="/contact"
-                className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${
-                  plan.enterprise
-                    ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
-                    : "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
-                }`}
-              >
-                {plan.button}
-              </Link>
+              {plan.calLink ? (
+                <button
+                  data-cal-link={plan.calLink}
+                  data-cal-namespace="discovery"
+                  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                  className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${
+                    plan.enterprise
+                      ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
+                      : "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
+                  }`}
+                >
+                  {plan.button}
+                </button>
+              ) : (
+                <a
+                  href={plan.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${
+                    plan.enterprise
+                      ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
+                      : "bg-[#2E6DB4] hover:bg-[#1A3C6E] text-white"
+                  }`}
+                >
+                  {plan.button}
+                </a>
+              )}
             </motion.div>
           ))}
         </motion.div>
