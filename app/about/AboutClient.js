@@ -282,7 +282,7 @@ const AboutClient = () => {
               {
                 name: "Oyebode Emmanuel",
                 role: "CTO & Co-Founder",
-                bio: "Based in Nigeria, Oyebode Emmanuel leads business development and client operations, ensuring every client receives tailored strategies and exceptional results.",
+                bio: "Oyebode Emmanuel is the technical force behind AI1team — architecting and deploying the AI systems that power every client engagement, from intelligent chatbots to end-to-end workflow automation.",
                 linkedIn: "https://www.linkedin.com/in/oyebode-emmanuel-6bb936242",
                 imageSrc: "/images/emman_img.jpeg",
                 delay: 0.15,
