@@ -8,6 +8,7 @@ import Loading from "@/components/Loading";
 import PageTransition from "@/components/PageTransition";
 import JsonLd from "@/components/JsonLd";
 import TawkChat from "@/components/TawkChat";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -151,6 +152,7 @@ export default function RootLayout({ children }) {
             });
           `}
         </Script>
+        <Analytics />
       </body>
     </html>
   );
