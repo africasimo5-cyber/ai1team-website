@@ -33,5 +33,23 @@ export const demos = [
     ],
     duration: "Demo video",
     dateAdded: "2026-06-17"
+  },
+  {
+    slug: "instagram-lead-generation",
+    title: "Instagram Lead Generation Automation",
+    subtitle: "Finds, emails, and follows up with 10,000+ potential customers from Instagram every month",
+    youtubeId: "pp2dbTrCw10",
+    thumbnail: "/images/instagram_thubnail.png",
+    category: "Business & Workflow Automation",
+    description: "This automation can get any business 10,000 new potential customers from Instagram every single month, fully automated. Unlike most lead generation systems, it doesn't just find those leads — it also contacts every single one via email automatically, follows up on anyone who doesn't reply, and tracks everything in an online dashboard.",
+    whatItDoes: [
+      "Automatically finds up to 10,000 potential customers from Instagram every month",
+      "Sends a personalized email to every lead found — no manual outreach needed",
+      "Automatically follows up with any lead who doesn't reply",
+      "Tracks every lead and interaction in an online dashboard",
+      "Built to scale — at a $1,000 service price, even a 1% close rate means 100 new clients or $100,000 in revenue"
+    ],
+    duration: "Demo video",
+    dateAdded: "2026-06-17"
   }
 ];
