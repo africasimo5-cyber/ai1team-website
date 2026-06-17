@@ -15,5 +15,23 @@ export const demos = [
     ],
     duration: "Demo video",
     dateAdded: "2026-06-17"
+  },
+  {
+    slug: "whatsapp-booking-assistant",
+    title: "AI Agent WhatsApp Booking Assistant",
+    subtitle: "Books appointments automatically for your business — directly on WhatsApp",
+    youtubeId: "_PO2aAOPdhQ",
+    thumbnail: "/images/whatsapp_agent.png",
+    category: "AI Agents & Chatbots",
+    description: "Watch this AI agent handle appointment booking entirely through WhatsApp — no human required. Customers message in, the AI checks availability, confirms a time, and books it straight into the calendar. No back-and-forth, no missed bookings, available 24/7.",
+    whatItDoes: [
+      "Responds instantly to WhatsApp messages requesting a booking",
+      "Checks real-time calendar availability automatically",
+      "Confirms and books appointments without human involvement",
+      "Sends confirmation and reminder messages to the customer",
+      "Works around the clock — no missed leads outside business hours"
+    ],
+    duration: "Demo video",
+    dateAdded: "2026-06-17"
   }
 ];
