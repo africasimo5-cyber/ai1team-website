@@ -3,7 +3,7 @@ export const demos = [
     slug: "social-media-automation",
     title: "Social Media Post Automation",
     subtitle: "Posts to LinkedIn, Facebook, Instagram & TikTok — Automatically",
-    youtubeId: "AQMvo7FM72w",
+    youtubeId: "B-Ch77dtY_E",
     thumbnail: "/images/thubnail_post1.png",
     category: "Social Media & Content Automation",
     description: "Watch this automation generate and publish unique posts across LinkedIn, Facebook, Instagram, and TikTok completely on its own. No manual posting, no scheduling tools, no daily content creation — the system runs continuously without anyone touching it.",
