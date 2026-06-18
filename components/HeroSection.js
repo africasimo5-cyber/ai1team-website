@@ -1,15 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 
 const HeroSection = () => {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat min-h-[480px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32"
-      style={{ backgroundImage: "url('/images/hero-home.jpg')" }}
+      className="relative min-h-[480px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32"
     >
+      <Image
+        src="/images/hero-home.jpg"
+        alt=""
+        fill
+        priority
+        quality={85}
+        className="object-cover object-center -z-10"
+      />
       <div className="absolute inset-0 bg-[#0A193C] opacity-[0.88] z-0" />
 
       {/* Subtle orb accents */}

@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import HeroSection from "@/components/HeroSection";
 import LogoMarquee from "@/components/LogoMarquee";
 import StatsSection from "@/components/StatsSection";

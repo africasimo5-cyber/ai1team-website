@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,7 +14,7 @@
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -24,7 +22,7 @@
   body {
     background-color: #F8FAFF;
     color: #1A1A2E;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     line-height: 1.6;
   }
 
@@ -35,7 +33,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     color: #1A1A2E;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 700;
     line-height: 1.2;
   }

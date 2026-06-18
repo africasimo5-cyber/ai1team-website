@@ -35,7 +35,7 @@ module.exports = {
         white:      "#FFFFFF",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
       },
       boxShadow: {
         navbar: "0 2px 16px 0 rgba(26, 60, 110, 0.08)",

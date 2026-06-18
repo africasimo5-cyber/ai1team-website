@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import ContactClient from "./ContactClient";
 
 export const metadata = {

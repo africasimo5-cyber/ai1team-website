@@ -79,15 +79,16 @@ export default function DemoDetailPage() {
             <iframe
               src={`https://www.youtube.com/embed/${demo.youtubeId}`}
               style={{
-                position: 'absolute', 
+                position: 'absolute',
                 top: 0,
-                left: 0, 
-                width: '100%', 
+                left: 0,
+                width: '100%',
                 height: '100%',
                 border: 'none'
               }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              loading="lazy"
               title={demo.title}
             />
           </div>
