@@ -123,7 +123,7 @@ export default function TermsClient() {
     <div className="flex flex-col min-h-screen">
 
       {/* ── Hero ── */}
-      <section className="bg-[#1A3C6E] py-24 px-6 text-center">
+      <section className="bg-[#1A3C6E] pt-24 pb-24 md:pt-24 md:pb-32 px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

@@ -42,7 +42,7 @@ const AboutClient = () => {
     <div className="flex flex-col min-h-screen">
 
       {/* ── 1. Hero ── */}
-      <section className="relative bg-[#0f0f17] min-h-[82vh] flex items-center justify-center overflow-hidden pt-20 md:pt-[100px]">
+      <section className="relative bg-[#0f0f17] min-h-[82vh] flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32">
 
         {/* Glow orbs */}
         <div className="absolute inset-0 pointer-events-none">

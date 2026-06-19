@@ -19,7 +19,7 @@ export default function DemoDetailPage() {
     <div className="min-h-screen bg-white">
       {/* 1. HERO SECTION */}
       <section
-        className="relative pt-32 pb-16 text-center overflow-hidden"
+        className="relative pt-24 pb-24 md:pt-24 md:pb-32 text-center overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0a0a0f 0%, #0f0f17 40%, #1A3C6E 100%)' }}
       >
         {/* Decorative grid */}
@@ -65,8 +65,9 @@ export default function DemoDetailPage() {
       <section className="bg-white py-16 max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           <div style={{
             position: 'relative', 
@@ -99,8 +100,9 @@ export default function DemoDetailPage() {
       <section className="px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="bg-[#F0F6FF] rounded-2xl p-10 my-12 max-w-4xl mx-auto"
         >
           <h2 className="uppercase text-[#2E6DB4] text-xs font-bold tracking-widest mb-4">
@@ -126,8 +128,9 @@ export default function DemoDetailPage() {
       <section className="px-6 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="bg-[#1A3C6E] py-16 px-6 text-center max-w-4xl mx-auto rounded-2xl flex flex-col items-center"
         >
           <h2 className="text-white font-bold text-3xl">

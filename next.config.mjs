@@ -14,6 +14,7 @@ const nextConfig = {
     localPatterns: [
       { pathname: "/**" },
     ],
+    formats: ["image/webp"],
   },
   async headers() {
     return [

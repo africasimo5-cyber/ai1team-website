@@ -350,7 +350,7 @@ export default function IntakeClient() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* ── Hero ── */}
-      <section className="relative bg-[#0f0f17] flex items-center justify-center overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="relative bg-[#0f0f17] flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-24 -left-16 w-[580px] h-[580px] rounded-full bg-[radial-gradient(circle,rgba(26,60,110,0.55)_0%,transparent_65%)]" />
           <div className="absolute -bottom-24 -right-16 w-[480px] h-[480px] rounded-full bg-[radial-gradient(circle,rgba(46,109,180,0.28)_0%,transparent_65%)]" />

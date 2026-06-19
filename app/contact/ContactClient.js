@@ -111,7 +111,7 @@ const ContactClient = () => {
     <div className="flex flex-col min-h-screen">
 
       {/* ── 1. Hero ── */}
-      <section className="relative bg-[#0f0f17] min-h-[72vh] flex items-center justify-center overflow-hidden pt-20 md:pt-[100px]">
+      <section className="relative bg-[#0f0f17] min-h-[72vh] flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32">
 
         {/* Orbs */}
         <div className="absolute inset-0 pointer-events-none">
@@ -126,7 +126,7 @@ const ContactClient = () => {
           style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "28px 28px" }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-20">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}

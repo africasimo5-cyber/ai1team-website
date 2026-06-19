@@ -58,8 +58,8 @@ export default function SarahMitchellPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section 
-        className="relative pt-32 pb-20 text-center overflow-hidden"
+      <section
+        className="relative pt-24 pb-24 md:pt-24 md:pb-32 text-center overflow-hidden"
         style={{ 
           background: 'linear-gradient(135deg, #0a0a0f 0%, #0f0f17 40%, #1A3C6E 100%)' 
         }}

@@ -372,7 +372,7 @@ const ServicesClient = () => {
     <div className="flex flex-col min-h-screen">
 
       {/* ── Hero ── */}
-      <section className="relative bg-[#0f0f17] min-h-[88vh] flex items-center justify-center overflow-hidden pt-20 md:pt-[100px]">
+      <section className="relative bg-[#0f0f17] min-h-[88vh] flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32">
 
         {/* Layered glow orbs */}
         <div className="absolute inset-0 pointer-events-none">
@@ -391,7 +391,7 @@ const ServicesClient = () => {
         <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-[#2E6DB4]/20 to-transparent pointer-events-none" />
 
         {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-20">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
 
           {/* Top badge */}
           <motion.div
@@ -411,7 +411,7 @@ const ServicesClient = () => {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.1, ease: "easeOut" }}
-            className="text-5xl md:text-[4.5rem] font-extrabold text-white leading-[1.08] tracking-tight mb-6"
+            className="text-4xl md:text-[4.5rem] font-extrabold text-white leading-[1.08] tracking-tight mb-6"
           >
             Everything Your Business<br className="hidden md:block" />
             Needs to Run on{" "}

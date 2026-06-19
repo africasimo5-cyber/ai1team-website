@@ -22,7 +22,7 @@ const WhiteLabelPage = () => {
       <title>White Label Audit Services | AI1team</title>
       
       {/* SECTION 1 — HERO */}
-      <section className="bg-[#0f0f17] pt-32 pb-24 px-6 min-h-screen flex items-center">
+      <section className="bg-[#0f0f17] pt-24 pb-24 md:pt-24 md:pb-32 px-6 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
             initial="hidden"

@@ -13,7 +13,7 @@ export default function DemosPage() {
 
       {/* ── 1. HERO ── */}
       <section
-        className="relative pt-32 pb-20 text-center overflow-hidden"
+        className="relative pt-24 pb-24 md:pt-24 md:pb-32 text-center overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0a0a0f 0%, #0f0f17 40%, #1A3C6E 100%)' }}
       >
         {/* Decorative grid */}
@@ -71,7 +71,8 @@ export default function DemosPage() {
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="text-3xl font-bold text-center mb-3"
             style={{ color: '#1A1A2E' }}
@@ -80,7 +81,8 @@ export default function DemosPage() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-center mb-12"
             style={{ color: '#555577' }}
@@ -93,8 +95,9 @@ export default function DemosPage() {
               <motion.div
                 key={demo.slug}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link href={`/demos/${demo.slug}`} className="block h-full group">
                   <div className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
@@ -102,7 +105,7 @@ export default function DemosPage() {
                     {/* Thumbnail */}
                     <div className="relative h-52 w-full overflow-hidden">
                       <Image
-                        src={demo.thumbnail || `https://img.youtube.com/vi/${demo.youtubeId}/maxresdefault.jpg`}
+                        src={demo.thumbnail || `https://img.youtube.com/vi/${demo.youtubeId}/hqdefault.jpg`}
                         alt={demo.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -154,7 +157,8 @@ export default function DemosPage() {
         <div className="max-w-2xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="text-3xl font-bold text-white"
           >
@@ -162,7 +166,8 @@ export default function DemosPage() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-4 max-w-xl mx-auto"
             style={{ color: '#94a3b8' }}
@@ -171,7 +176,8 @@ export default function DemosPage() {
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <button
