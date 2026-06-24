@@ -10,8 +10,8 @@ import {
 } from "react-icons/fa";
 
 const stats = [
-  { value: "25+",  label: "AI Services" },
-  { value: "2",    label: "Continents" },
+  { value: "25+", label: "AI Services" },
+  { value: "2", label: "Continents" },
   { value: "24/7", label: "Always On" },
   { value: "100%", label: "Custom Built" },
 ];
@@ -120,7 +120,7 @@ const AboutClient = () => {
                 <p>
                   AI1team was born from one observation: most businesses are drowning in
                   manual work they shouldn&apos;t be doing. Repetitive tasks, missed
-                  follow ups, disconnected tools. All eating away at growth.
+                  follow ups, disconnected tools all eating away at growth.
                 </p>
                 <p>
                   Robert, Emmanuel, and a growing team of specialists spread across the
@@ -135,10 +135,10 @@ const AboutClient = () => {
 
               <div className="mt-10 grid grid-cols-2 gap-5">
                 {[
-                  { icon: FaGlobe,  text: "Operating across 2 continents" },
-                  { icon: FaBrain,  text: "25+ AI services deployed" },
-                  { icon: FaCogs,   text: "End-to-end custom builds" },
-                  { icon: FaUsers,  text: "Clients from solo to scale-up" },
+                  { icon: FaGlobe, text: "Operating across the globe" },
+                  { icon: FaBrain, text: "30+ AI services deployed" },
+                  { icon: FaCogs, text: "End-to-end custom builds" },
+                  { icon: FaUsers, text: "Clients from solo to scale-up" },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-[#F0F6FF] flex items-center justify-center shrink-0 mt-0.5">
