@@ -10,8 +10,8 @@ import {
 } from "react-icons/fa";
 
 const stats = [
-  { value: "25+", label: "AI Services" },
-  { value: "2", label: "Continents" },
+  { value: "30+", label: "AI Services" },
+  { value: "7", label: "Continents" },
   { value: "24/7", label: "Always On" },
   { value: "100%", label: "Custom Built" },
 ];
