@@ -251,7 +251,7 @@ const AboutClient = () => {
 
       {/* ── 4. Meet The Team ── */}
       <section className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -264,28 +264,58 @@ const AboutClient = () => {
               The People
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1A1A2E]">Meet The Team</h2>
-            <p className="text-[#555577] mt-4 max-w-xl mx-auto text-sm leading-relaxed">
-              Two builders, two continents, one goal — helping your business run smarter with AI.
+            <p className="text-[#555577] mt-4 max-w-2xl mx-auto text-sm leading-relaxed">
+              A specialist team spread across continents — united by one goal: making your business run smarter with AI.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mx-auto">
             {[
               {
                 name: "Robert Mrak",
                 role: "Founder & Lead Strategist",
                 bio: "With a deep passion for AI and automation, Robert Mrak founded AI1team to bring enterprise-level automation intelligence to businesses of all sizes.",
-                linkedIn: "https://www.linkedin.com/in/mrakrobert/",
                 imageSrc: "/images/robert_img.jpg",
                 delay: 0,
               },
               {
                 name: "Oyebode Emmanuel",
                 role: "CTO & Co-Founder",
-                bio: "Oyebode Emmanuel is the technical force behind AI1team — architecting and deploying the AI systems that power every client engagement, from intelligent chatbots to end-to-end workflow automation.",
-                linkedIn: "https://www.linkedin.com/in/oyebode-emmanuel-6bb936242",
+                bio: "Oyebode Emmanuel is the technical force behind AI1team, architecting and deploying the AI systems that power every client engagement, from intelligent chatbots to comprehensive workflow automation.",
                 imageSrc: "/images/emman_img.jpeg",
-                delay: 0.15,
+                delay: 0.1,
+              },
+              {
+                name: "Sophia Reyes",
+                role: "Senior Automation Specialist",
+                bio: "Sophia designs and deploys complete workflow automation systems for clients across ecommerce, real estate, and professional services, turning manual bottlenecks into automated pipelines.",
+                imageSrc: "/images/team_01.jpg",
+                imagePosition: "object-top",
+                delay: 0.2,
+              },
+              {
+                name: "Daniel Osei",
+                role: "AI Chatbot Engineer",
+                bio: "Daniel builds intelligent conversational agents that handle lead capture, customer support, and appointment booking around the clock, without human input.",
+                imageSrc: "/images/team_02.jpg",
+                imagePosition: "object-top",
+                delay: 0.3,
+              },
+              {
+                name: "Priya Nair",
+                role: "Automation Consultant & Onboarding Lead",
+                bio: "Priya guides new clients through the audit process, maps their current workflows, and translates business goals into actionable automation roadmaps.",
+                imageSrc: "/images/team_03.jpg",
+                imagePosition: "object-top",
+                delay: 0.4,
+              },
+              {
+                name: "Marcus Webb",
+                role: "Systems Integration Engineer",
+                bio: "Marcus specialises in connecting tools, CRMs, and data pipelines, ensuring every automation we deploy works seamlessly with the client's existing stack.",
+                imageSrc: "/images/team_04.jpg",
+                imagePosition: "object-top",
+                delay: 0.5,
               },
             ].map(({ delay, ...props }) => (
               <motion.div
@@ -294,6 +324,7 @@ const AboutClient = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay }}
+                className="h-full"
               >
                 <TeamCard {...props} />
               </motion.div>
