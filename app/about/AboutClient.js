@@ -120,12 +120,12 @@ const AboutClient = () => {
                 <p>
                   AI1team was born from one observation: most businesses are drowning in
                   manual work they shouldn&apos;t be doing. Repetitive tasks, missed
-                  follow-ups, disconnected tools — all eating away at growth.
+                  follow ups, disconnected tools. All eating away at growth.
                 </p>
                 <p>
-                  Robert and Emmanuel — building from two continents — came together with
-                  a shared conviction: AI automation should be practical, affordable, and
-                  proven. Not theoretical. Not enterprise-only.
+                  Robert, Emmanuel, and a growing team of specialists spread across the
+                  globe came together with a shared conviction: AI automation should be
+                  practical, affordable, and proven. Not theoretical. Not enterprise only.
                 </p>
                 <p>
                   Every system we build is something we&apos;d use ourselves. That&apos;s
@@ -261,11 +261,11 @@ const AboutClient = () => {
             className="text-center mb-14"
           >
             <span className="text-xs font-bold uppercase tracking-widest text-[#2E6DB4] mb-3 block">
-              The People
+              GLOBAL TEAM
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1A1A2E]">Meet The Team</h2>
             <p className="text-[#555577] mt-4 max-w-2xl mx-auto text-sm leading-relaxed">
-              A specialist team spread across continents — united by one goal: making your business run smarter with AI.
+              A specialist team spread across the globe, united by one goal: making your business run smarter with AI.
             </p>
           </motion.div>
 
