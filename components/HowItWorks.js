@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaPhone, FaMap, FaCode, FaRocket } from "react-icons/fa";
+import AuditIllustration from "./illustrations/AuditIllustration";
 
 const steps = [
   {
@@ -34,72 +35,64 @@ const HowItWorks = () => {
   return (
     <section className="py-24 bg-[#F0F6FF]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16">
-          <h2 className="font-bold text-[#1A3C6E] text-3xl text-center">
-            How We Work
-          </h2>
-          <p className="text-[#555577] text-center text-base mt-3 max-w-[500px] mx-auto">
-            A simple, proven process to automate and scale your business
-          </p>
-        </div>
 
-        <div className="relative">
-          {/* Desktop connecting dashed line */}
-          <div 
-            className="hidden lg:block absolute z-0"
-            style={{
-              top: "28px",
-              left: "12.5%",
-              right: "12.5%",
-              height: "2px",
-              background: "repeating-linear-gradient(to right, #2E6DB4 0px, #2E6DB4 8px, transparent 8px, transparent 16px)",
-              opacity: 0.4
-            }}
-          />
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-          {/* Mobile connecting vertical line */}
-          <div 
-            className="lg:hidden absolute z-0 top-7 bottom-7 left-7 w-[2px]"
-            style={{
-              background: "repeating-linear-gradient(to bottom, #2E6DB4 0px, #2E6DB4 8px, transparent 8px, transparent 16px)",
-              opacity: 0.4
-            }}
-          />
+          {/* Left: scroll-triggered illustration wrapper */}
+          <div className="w-full lg:max-w-[420px] shrink-0">
+            <div className="relative p-8 rounded-[2rem] bg-white border border-[#e2e8f0] shadow-[0_20px_50px_rgba(26,60,110,0.06)] overflow-hidden group">
+              {/* Subtle background glow */}
+              <div className="absolute -right-20 -bottom-20 w-60 h-60 rounded-full bg-[radial-gradient(circle,rgba(96,165,250,0.12)_0%,transparent_70%)] pointer-events-none group-hover:scale-110 transition-transform duration-700 blur-xl" />
+              <div className="relative z-10 flex items-center justify-center">
+                <AuditIllustration />
+              </div>
+              {/* Decorative floating badge */}
+              <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full shadow-md">
+                Systems Builder
+              </div>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-0 relative z-10">
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.15 }}
-                className="flex flex-row lg:flex-col items-start lg:items-center relative"
-              >
-                <div className="w-14 h-14 bg-[#1A3C6E] text-white font-bold text-lg border-3 border-[#2E6DB4] rounded-full flex items-center justify-center flex-shrink-0 z-10 lg:mx-auto mr-6 shadow-[0_0_0_3px_#2E6DB4]" style={{boxShadow: "inset 0 0 0 0 transparent, 0 0 0 3px #2E6DB4"}}>
-                  {step.number}
-                </div>
+          {/* Right: heading + steps grid */}
+          <div className="flex-1 w-full">
+            <div className="mb-12">
+              <h2 className="font-bold text-[#1A3C6E] text-3xl text-center lg:text-left">
+                How We Work
+              </h2>
+              <p className="text-[#555577] text-center lg:text-left text-base mt-3 max-w-[500px] mx-auto lg:mx-0">
+                A simple, proven process to automate and scale your business
+              </p>
+            </div>
 
-                <div className="flex flex-col lg:items-center mt-1 lg:mt-4">
-                  <div className="text-[#2E6DB4] text-[26px] mb-3 lg:mb-0 lg:hidden">
-                    <step.icon />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+                  className="flex flex-col bg-white rounded-2xl p-6 border border-[#e2e8f0] shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-[#1A3C6E] text-white font-bold text-sm rounded-full flex items-center justify-center shrink-0 shadow-[0_0_0_3px_#2E6DB4]">
+                      {step.number}
+                    </div>
+                    <div className="text-[#2E6DB4] text-[22px]">
+                      <step.icon />
+                    </div>
                   </div>
-                  
-                  <div className="hidden lg:flex text-[#2E6DB4] text-[26px] mt-4 mb-2">
-                     <step.icon />
-                  </div>
-
-                  <h3 className="font-bold text-[#1A3C6E] text-lg text-left lg:text-center mt-1 lg:mt-3">
+                  <h3 className="font-bold text-[#1A3C6E] text-base mb-2">
                     {step.title}
                   </h3>
-                  
-                  <p className="text-[#555577] text-sm leading-relaxed text-left lg:text-center max-w-none lg:max-w-[200px] lg:mx-auto mt-2">
+                  <p className="text-[#555577] text-sm leading-relaxed">
                     {step.description}
                   </p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </section>

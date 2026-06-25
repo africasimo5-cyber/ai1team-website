@@ -18,6 +18,7 @@ const ServiceCard = ({ icon: Icon, title, description, features, index, variant 
           : "bg-white border border-gray-100 shadow-md hover:border-[#2E6DB4]/40 hover:shadow-[0_0_20px_rgba(46,109,180,0.15)]"
       }`}
     >
+
       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2E6DB4] to-[#9333ea] flex items-center justify-center shrink-0">
         <Icon className="text-white text-[22px]" />
       </div>
