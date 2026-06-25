@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaQuoteLeft, FaClock, FaPlus } from 'react-icons/fa';
+import { FaQuoteLeft, FaClock } from 'react-icons/fa';
 import { sarahMitchellStory } from '@/data/stories/sarah-mitchell';
 import { jamesCarterStory } from '@/data/stories/james-carter';
+import { lenaOkaforStory } from '@/data/stories/lena-okafor';
 
 export default function StoriesPage() {
   return (
@@ -203,16 +204,60 @@ export default function StoriesPage() {
               </Link>
             </motion.div>
 
-            {/* ── Placeholder Card 2 ── */}
+            {/* ── Story Card: Lena Okafor ── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="border-2 border-dashed border-gray-300 bg-white rounded-2xl min-h-64 flex flex-col items-center justify-center gap-3"
             >
-              <FaPlus className="text-3xl" style={{ color: '#d1d5db' }} />
-              <p className="text-sm" style={{ color: '#9ca3af' }}>More stories coming soon</p>
-              <p className="text-xs mt-1" style={{ color: '#9ca3af' }}>Every week, a new transformation.</p>
+              <Link href="/stories/lena-okafor" className="block group">
+                <div className="bg-white rounded-2xl shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                  {/* Banner */}
+                  <div
+                    className="h-48 relative flex flex-col justify-between p-6"
+                    style={{ background: 'linear-gradient(135deg, #1A3C6E, #0f0f17)' }}
+                  >
+                    <span
+                      className="text-xs font-semibold text-white rounded-full px-3 py-1 w-fit"
+                      style={{ backgroundColor: 'rgba(46,109,180,0.2)' }}
+                    >
+                      Story #03
+                    </span>
+                    <FaQuoteLeft className="text-white text-6xl mt-3" style={{ opacity: 0.2 }} />
+                  </div>
+
+                  {/* Body */}
+                  <div className="p-6">
+                    <p
+                      className="text-xs uppercase font-semibold tracking-wide mb-3"
+                      style={{ color: '#2E6DB4' }}
+                    >
+                      {lenaOkaforStory.category}
+                    </p>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#1A1A2E' }}>
+                      {lenaOkaforStory.title}
+                    </h3>
+                    <p className="text-sm font-semibold mb-3" style={{ color: '#2E6DB4' }}>
+                      {lenaOkaforStory.client} — {lenaOkaforStory.role}
+                    </p>
+                    <p className="text-sm mb-4 leading-relaxed" style={{ color: '#555577' }}>
+                      {lenaOkaforStory.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span
+                        className="flex items-center gap-1.5 text-xs"
+                        style={{ color: '#94a3b8' }}
+                      >
+                        <FaClock />
+                        {lenaOkaforStory.readTime}
+                      </span>
+                      <span className="text-sm font-semibold" style={{ color: '#2E6DB4' }}>
+                        Read Story →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
 
           </div>
