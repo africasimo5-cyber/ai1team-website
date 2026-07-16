@@ -21,6 +21,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Stories", href: "/stories" },
   { name: "Demos", href: "/demos" },
+  { name: "BizOS", href: "/bizos" },
   { name: "White Label", href: "/white-label" },
   { name: "Contact", href: "/contact" },
 ];
