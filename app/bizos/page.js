@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const problemCards = [
   {
@@ -22,24 +23,46 @@ const featureBlocks = [
   {
     module: "Contacts and pipeline",
     text: "You can store every customer, lead, and supplier in one place, with a sales pipeline that shows you exactly where each deal stands. Pipelines are customizable, so the stages reflect how your business actually works rather than a generic template someone else designed.",
+    image: null,
   },
   {
     module: "Invoicing and payments",
     text: "BizOS generates invoices in Naira, calculates VAT automatically, and lets customers pay directly from the invoice using Paystack. You can set a default VAT rate, default due days, and a custom invoice prefix, so every invoice that leaves your business looks consistent and professional.",
+    image: {
+      src: "/images/bizos_Invoice.png",
+      alt: "BizOS invoice showing Naira amount with payment tracking",
+      position: "right",
+    },
   },
   {
     module: "Tax and compliance",
     text: "BizOS tracks VAT, withholding tax, and PAYE payroll in line with the Nigeria Tax Act 2025. At any point you can export a full tax summary report or a standalone VAT report. Payroll includes payslip generation and email delivery to staff.",
+    image: {
+      src: "/images/bizos_vat.png",
+      alt: "BizOS VAT report showing tax summary and compliance data",
+      position: "left",
+    },
   },
   {
     module: "Automations",
     text: "The automation builder is visual and drag and drop. You set a trigger and define what happens next, without writing any code. You can use it to follow up with contacts, update pipeline stages, send emails, or chain multiple actions together. Apex plans support advanced conditions and branching for more complex workflows.",
+    image: {
+      src: "/images/bizos_automation.png",
+      alt: "BizOS visual automation builder showing drag and drop workflow canvas",
+      position: "right",
+    },
   },
 ];
 
 const financialHealthBlock = {
   module: "Financial Health Score",
   text: "BizOS generates a Financial Health Score based on your business's own income, expenses, and payment history inside the app. The score is accompanied by a bank ready financial report that you can export as a PDF, download as a CSV, or share via a secure link. It is designed to give a lender a clear picture of your business's standing, not a score about your customers. This feature is available on the Apex plan.",
+  image: {
+    src: "/images/bizos_financialhealth.png",
+    alt: "BizOS Financial Health Score showing creditworthiness dashboard and bank ready report",
+    position: "left",
+    caption: "The Financial Health Score and bank ready report are available on the Apex plan.",
+  },
 };
 
 const foundationFeatures = [
@@ -134,6 +157,108 @@ const FeatureList = ({ items, textColor }) => (
   </ul>
 );
 
+const ImageFrame = ({ src, alt, priority, className, onOpen }) => (
+  <div
+    className={`bg-white rounded-2xl p-2 md:p-3 shadow-xl w-full ${className || ""}`}
+    style={{ border: "1px solid #e2e8f0" }}
+  >
+    <button
+      type="button"
+      onClick={() => onOpen({ src, alt })}
+      className="w-full block cursor-zoom-in"
+      aria-label={`View larger version of ${alt}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={1200}
+        height={750}
+        priority={priority}
+        className="rounded-2xl shadow-xl w-full h-auto object-cover overflow-hidden"
+        style={{ border: "1px solid rgba(0,0,0,0.08)" }}
+      />
+    </button>
+  </div>
+);
+
+const Lightbox = ({ image, onClose }) => (
+  <AnimatePresence>
+    {image && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        onClick={onClose}
+        className="fixed inset-0 z-[100] bg-black/85 flex items-center justify-center p-6 cursor-zoom-out"
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.96 }}
+          transition={{ duration: 0.2 }}
+          className="relative max-w-5xl w-full"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close image"
+            className="absolute -top-10 right-0 text-white text-sm font-semibold hover:text-[#94a3b8] transition-colors"
+          >
+            Close
+          </button>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={1600}
+            height={1000}
+            className="rounded-2xl w-full h-auto object-contain"
+          />
+        </motion.div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
+
+const FeatureBlock = ({ module, text, image, idx, onOpenImage }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: idx * 0.1 }}
+    className="max-w-5xl mx-auto w-full bg-white rounded-2xl p-8 md:p-12 shadow-sm"
+  >
+    {image ? (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className={image.position === "left" ? "md:order-2" : ""}>
+          <h3 className="font-semibold text-[#1A3C6E] text-base uppercase tracking-wide mb-3">
+            {module}
+          </h3>
+          <p className="text-[#555577] text-base" style={{ lineHeight: 1.8 }}>
+            {text}
+          </p>
+        </div>
+        <div className={image.position === "left" ? "md:order-1" : ""}>
+          <ImageFrame src={image.src} alt={image.alt} onOpen={onOpenImage} />
+          {image.caption && (
+            <p className="text-xs text-[#555577] text-center mt-2">{image.caption}</p>
+          )}
+        </div>
+      </div>
+    ) : (
+      <>
+        <h3 className="font-semibold text-[#1A3C6E] text-base uppercase tracking-wide mb-3">
+          {module}
+        </h3>
+        <p className="text-[#555577] text-base" style={{ lineHeight: 1.8 }}>
+          {text}
+        </p>
+      </>
+    )}
+  </motion.div>
+);
+
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -168,14 +293,46 @@ const FAQItem = ({ question, answer }) => {
 };
 
 export default function BizOSPage() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
   useEffect(() => {
     document.title = "BizOS: Run Your Business | AI1team";
   }, []);
 
+  useEffect(() => {
+    if (!lightboxImage) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setLightboxImage(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightboxImage]);
+
   return (
     <div className="flex flex-col min-h-screen">
+      <Lightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
+
       {/* Hero */}
       <section className="relative bg-[#0f0f17] flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32">
+        <div
+          className="absolute inset-0 z-0 opacity-[0.16] mix-blend-screen bg-cover bg-center bg-no-repeat pointer-events-none"
+          style={{ backgroundImage: "url('/images/workflow-bg.png')" }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.14] z-0 pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(96, 165, 250, 0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: "4.5rem 4.5rem",
+          }}
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_15%,#0f0f17_75%)] z-0 pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(46,109,180,0.18)_0%,transparent_70%)] blur-2xl pointer-events-none" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.12)_0%,transparent_70%)] blur-2xl pointer-events-none" />
+        </div>
         <div className="relative z-10 px-6 w-full">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -229,6 +386,21 @@ export default function BizOSPage() {
           >
             14 days free. A card is required to start your trial.
           </motion.p>
+        </div>
+      </section>
+
+      {/* Dashboard preview */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 pb-16">
+          <ImageFrame
+            src="/images/bizos_dashboard.png"
+            alt="BizOS business dashboard showing contacts, invoices, and cash flow"
+            priority
+            onOpen={setLightboxImage}
+          />
+          <p className="text-sm text-[#555577] text-center mt-4 max-w-xl mx-auto">
+            The BizOS dashboard gives you a single view of your business, contacts, invoices, cash flow, and tasks, all in one place.
+          </p>
         </div>
       </section>
 
@@ -290,39 +462,25 @@ export default function BizOSPage() {
             Everything your business needs to stay organized and move forward.
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 gap-8 mt-12">
             {featureBlocks.map((block, idx) => (
-              <motion.div
+              <FeatureBlock
                 key={block.module}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm"
-              >
-                <h3 className="font-semibold text-[#1A3C6E] text-base uppercase tracking-wide mb-3">
-                  {block.module}
-                </h3>
-                <p className="text-[#555577] text-base" style={{ lineHeight: 1.8 }}>
-                  {block.text}
-                </p>
-              </motion.div>
+                module={block.module}
+                text={block.text}
+                image={block.image}
+                idx={idx}
+                onOpenImage={setLightboxImage}
+              />
             ))}
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: featureBlocks.length * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-sm col-span-full max-w-lg mx-auto"
-            >
-              <h3 className="font-semibold text-[#1A3C6E] text-base uppercase tracking-wide mb-3">
-                {financialHealthBlock.module}
-              </h3>
-              <p className="text-[#555577] text-base" style={{ lineHeight: 1.8 }}>
-                {financialHealthBlock.text}
-              </p>
-            </motion.div>
+            <FeatureBlock
+              module={financialHealthBlock.module}
+              text={financialHealthBlock.text}
+              image={financialHealthBlock.image}
+              idx={featureBlocks.length}
+              onOpenImage={setLightboxImage}
+            />
           </div>
         </div>
       </section>
