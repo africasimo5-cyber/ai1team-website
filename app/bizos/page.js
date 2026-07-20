@@ -259,6 +259,65 @@ const FeatureBlock = ({ module, text, image, idx, onOpenImage }) => (
   </motion.div>
 );
 
+const bizosNavLinks = [
+  { label: "Features", id: "features" },
+  { label: "Pricing", id: "pricing" },
+  { label: "FAQ", id: "faq" },
+];
+
+const scrollTo = (id) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
+
+const BizOSNavbar = () => (
+  <header
+    className="fixed top-0 left-0 right-0 z-50 w-full h-16 backdrop-blur"
+    style={{
+      backgroundColor: "#0f0f17",
+      borderBottom: "1px solid rgba(255,255,255,0.08)",
+    }}
+  >
+    <div className="h-full px-6 md:px-12 flex items-center justify-between max-w-7xl mx-auto">
+      <div className="w-9" aria-hidden="true" />
+
+      <nav className="hidden md:flex items-center gap-8">
+        {bizosNavLinks.map((link) => (
+          <span
+            key={link.id}
+            onClick={() => scrollTo(link.id)}
+            className="text-sm cursor-pointer transition-colors"
+            style={{ color: "#94a3b8" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#94a3b8")}
+          >
+            {link.label}
+          </span>
+        ))}
+        <a
+          href="https://help.ai1team.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm cursor-pointer transition-colors"
+          style={{ color: "#94a3b8" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#94a3b8")}
+        >
+          Help
+        </a>
+      </nav>
+
+      <a
+        href="https://app.ai1team.com/signup?plan=momentum"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-[#2E6DB4] text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-[#1A3C6E] transition-all"
+      >
+        Start free trial
+      </a>
+    </div>
+  </header>
+);
+
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -309,7 +368,8 @@ export default function BizOSPage() {
   }, [lightboxImage]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen -mt-[6.25rem] pt-16">
+      <BizOSNavbar />
       <Lightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
 
       {/* Hero */}
@@ -334,14 +394,14 @@ export default function BizOSPage() {
           <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.12)_0%,transparent_70%)] blur-2xl pointer-events-none" />
         </div>
         <div className="relative z-10 px-6 w-full">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xs uppercase tracking-widest text-[#2E6DB4] font-semibold text-center"
+            className="flex justify-center"
           >
-            AI1team BizOS
-          </motion.p>
+            <Image src="/crm_logo.png" alt="BizOS" height={112} width={380} className="h-24 md:h-28 w-auto" priority />
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -359,7 +419,7 @@ export default function BizOSPage() {
             className="text-[#94a3b8] text-lg mt-6 max-w-2xl mx-auto text-center"
             style={{ lineHeight: 1.8 }}
           >
-            BizOS is a business operating system built for Nigerian small businesses. It handles your contacts, invoices, tax records, payroll, and cash flow in one place, so you can spend less time on admin and more time on the work that actually grows your business.
+            BizOS is a business operating system built for Nigerian SMEs. It handles your contacts, invoices, tax records, payroll, and cash flow in one place, so you can spend less time on admin and more time on the work that actually grows your business.
           </motion.p>
 
           <motion.div
@@ -415,7 +475,7 @@ export default function BizOSPage() {
             transition={{ duration: 0.5 }}
             className="text-[#1A1A2E] font-bold text-3xl text-center max-w-2xl mx-auto mt-4"
           >
-            Most small businesses in Nigeria are run on memory, paper, and WhatsApp threads.
+            Most SMEs in Nigeria are run on memory, paper, and WhatsApp threads.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -425,7 +485,7 @@ export default function BizOSPage() {
             className="text-[#555577] text-base max-w-2xl mx-auto text-center mt-4"
             style={{ lineHeight: 1.8 }}
           >
-            That works until it does not. Tax season arrives and there are no records to show. A bank asks for financial statements and there are none. A customer disputes an invoice and nobody can find it. BizOS exists because these are not small problems. They are the reason good businesses stay small.
+            That works until it does not. Tax season arrives and there are no records to show. A bank asks for financial statements and there are none. A customer disputes an invoice and nobody can find it. BizOS exists because these are not small problems. They are the reason good businesses stop growing.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
@@ -449,7 +509,7 @@ export default function BizOSPage() {
       </section>
 
       {/* Feature highlights */}
-      <section className="bg-[#F0F6FF] py-24 px-6">
+      <section id="features" className="bg-[#F0F6FF] py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <SectionLabel>What BizOS does</SectionLabel>
           <motion.h2
@@ -486,7 +546,7 @@ export default function BizOSPage() {
       </section>
 
       {/* Pricing */}
-      <section className="bg-white py-24 px-6">
+      <section id="pricing" className="bg-white py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <SectionLabel>Pricing</SectionLabel>
           <motion.h2
@@ -523,7 +583,7 @@ export default function BizOSPage() {
                 $29<span className="text-base font-medium text-[#555577]">/month</span>
               </p>
               <p className="text-[#555577] text-sm mb-6" style={{ lineHeight: 1.8 }}>
-                For a solo operator or a very small business that is getting organized for the first time.
+                For a solo operator or a small business that is getting organized for the first time.
               </p>
               <FeatureList items={foundationFeatures} />
               <a
@@ -634,7 +694,7 @@ export default function BizOSPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-24 px-6">
+      <section id="faq" className="bg-white py-24 px-6">
         <div className="max-w-3xl mx-auto">
           <SectionLabel>Common questions</SectionLabel>
           <motion.h2

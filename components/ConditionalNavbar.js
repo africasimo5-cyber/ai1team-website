@@ -1,0 +1,14 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import Navbar from "@/components/Navbar";
+
+const HIDDEN_ON = ["/bizos"];
+
+export default function ConditionalNavbar() {
+  const pathname = usePathname();
+
+  if (HIDDEN_ON.includes(pathname)) return null;
+
+  return <Navbar />;
+}

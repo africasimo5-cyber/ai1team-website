@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import Script from "next/script";
-import Navbar from "@/components/Navbar";
+import ConditionalNavbar from "@/components/ConditionalNavbar";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
 import PageTransition from "@/components/PageTransition";
@@ -122,7 +122,7 @@ export default function RootLayout({ children }) {
       >
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
-        <Navbar />
+        <ConditionalNavbar />
         <main className="flex-grow">
           <Suspense fallback={<Loading />}>
             <PageTransition>{children}</PageTransition>
