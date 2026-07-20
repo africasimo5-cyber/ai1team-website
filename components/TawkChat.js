@@ -1,9 +1,22 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function TawkChat() {
+  const pathname = usePathname()
+  const loadedRef = useRef(false)
+
   useEffect(() => {
+    if (pathname === '/bizos') {
+      if (window.Tawk_API && typeof window.Tawk_API.hideWidget === 'function') {
+        window.Tawk_API.hideWidget()
+      }
+      return
+    }
+
+    if (loadedRef.current) return
+
     const load = () => {
       window.Tawk_API = window.Tawk_API || {}
       window.Tawk_LoadStart = new Date()
@@ -14,14 +27,21 @@ export default function TawkChat() {
       s1.charset = 'UTF-8'
       s1.setAttribute('crossorigin', '*')
       s0.parentNode.insertBefore(s1, s0)
+      loadedRef.current = true
     }
 
+    let idleId, timeoutId
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(load, { timeout: 5000 })
+      idleId = requestIdleCallback(load, { timeout: 5000 })
     } else {
-      setTimeout(load, 3000)
+      timeoutId = setTimeout(load, 3000)
     }
-  }, [])
+
+    return () => {
+      if (idleId && 'cancelIdleCallback' in window) cancelIdleCallback(idleId)
+      if (timeoutId) clearTimeout(timeoutId)
+    }
+  }, [pathname])
 
   return null
 }

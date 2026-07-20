@@ -367,6 +367,24 @@ export default function BizOSPage() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [lightboxImage]);
 
+  useEffect(() => {
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+    const s1 = document.createElement("script");
+    const s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = "https://embed.tawk.to/6a5e053803ec7a1d4cd04092/1jtvk8q18";
+    s1.charset = "UTF-8";
+    s1.setAttribute("crossorigin", "*");
+    s0.parentNode.insertBefore(s1, s0);
+
+    return () => {
+      if (window.Tawk_API && typeof window.Tawk_API.hideWidget === "function") {
+        window.Tawk_API.hideWidget();
+      }
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen -mt-[6.25rem] pt-16">
       <BizOSNavbar />

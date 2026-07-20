@@ -216,17 +216,6 @@ const Footer = () => {
             <p className="text-[#94a3b8] text-sm text-center md:text-left">
               © {new Date().getFullYear()} AI1team. All rights reserved.
             </p>
-            <p className="text-[#94a3b8]/40 text-xs text-center md:text-left">
-              Illustrations by{" "}
-              <a
-                href="https://storyset.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#94a3b8] transition-colors underline underline-offset-2"
-              >
-                Storyset
-              </a>
-            </p>
           </div>
           <div className="flex gap-6 text-[#94a3b8] text-sm">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
