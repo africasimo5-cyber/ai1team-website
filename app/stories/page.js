@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaQuoteLeft, FaClock } from 'react-icons/fa';
+import { FaQuoteLeft, FaClock, FaPlus } from 'react-icons/fa';
 import { sarahMitchellStory } from '@/data/stories/sarah-mitchell';
 import { jamesCarterStory } from '@/data/stories/james-carter';
 import { lenaOkaforStory } from '@/data/stories/lena-okafor';
@@ -258,6 +258,23 @@ export default function StoriesPage() {
                   </div>
                 </div>
               </Link>
+            </motion.div>
+
+            {/* ── Placeholder Card ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <div className="border-2 border-dashed border-gray-300 bg-white rounded-2xl min-h-64 flex items-center justify-center flex-col p-8 text-center">
+                <FaPlus className="text-3xl mb-3" style={{ color: '#d1d5db' }} />
+                <p className="text-sm" style={{ color: '#9ca3af' }}>
+                  More stories coming soon
+                </p>
+                <p className="text-xs mt-1" style={{ color: '#9ca3af' }}>
+                  Every week, a new transformation.
+                </p>
+              </div>
             </motion.div>
 
           </div>
