@@ -17,47 +17,25 @@ const scrollToRegister = () => {
 const hosts = [
   {
     photo: "/images/robert_img.jpg",
-    initials: "RM",
+    imagePosition: "center 75%",
+    alt: "Robert Mrak, Host",
     badge: "HOST",
     badgeBg: "#1A3C6E",
     name: "Robert Mrak",
-    title: "CEO and Founder, AI1team",
-    description: "Robert leads AI1team's strategy and business development. He built the BizOS Partner Program and will be hosting this session.",
+    title: "Founder and CEO, AI1team",
+    description: "Robert leads AI1team's strategy and built the BizOS Partner Program from the ground up. He will be opening the session and walking you through the bigger picture of where the program is going.",
   },
   {
     photo: "/images/emman_img.jpeg",
-    initials: "EO",
+    imagePosition: "center top",
+    alt: "Emmanuel Oyebode, Presenter",
     badge: "PRESENTER",
     badgeBg: "#2E6DB4",
     name: "Emmanuel Oyebode",
     title: "Co-Founder and Technical Director, AI1team",
-    description: "Emmanuel built and runs the technical side of BizOS. He will be walking you through exactly how the partner program works and how to get started.",
+    description: "Emmanuel built and runs the technical infrastructure behind BizOS. He will be taking you through exactly how the partner program works in practice, how commission is tracked, and how to get your first referral across the line.",
   },
 ];
-
-const HostPhoto = ({ src, alt, initials }) => {
-  const [imgError, setImgError] = useState(false);
-
-  if (imgError) {
-    return (
-      <div className="w-28 h-28 rounded-full bg-[#1A3C6E] mx-auto mb-6 flex items-center justify-center text-white font-bold text-2xl">
-        {initials}
-      </div>
-    );
-  }
-
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={120}
-      height={120}
-      className="w-28 h-28 rounded-full mx-auto object-cover mb-6"
-      style={{ border: "3px solid #2E6DB4" }}
-      onError={() => setImgError(true)}
-    />
-  );
-};
 
 const sessionBlocks = [
   {
@@ -159,120 +137,146 @@ export default function BizOSPartnerEventPage() {
       </div>
 
       {/* Section 1 — Hero */}
-      <section className="relative bg-[#0f0f17] flex items-center justify-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32">
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <Image
-            src="/crm_logo.png"
-            alt="BizOS"
-            height={72}
-            width={240}
-            className="h-16 md:h-[72px] w-auto mx-auto mb-8 block"
-            priority
-          />
+      <section
+        className="relative flex items-center overflow-hidden pt-24 pb-24 md:pt-24 md:pb-32 md:min-h-[90vh]"
+        style={{ background: "linear-gradient(135deg, #0f0f17 0%, #1A3C6E 50%, #0f0f17 100%)" }}
+      >
+        <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center w-full">
+          {/* Left column — text content */}
+          <div className="text-center md:text-left">
+            <Image
+              src="/crm_logo.png"
+              alt="BizOS"
+              height={72}
+              width={240}
+              className="h-16 md:h-[72px] w-auto mx-auto md:mx-0 mb-8 block"
+              priority
+            />
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="uppercase text-[#2E6DB4] text-xs font-semibold tracking-widest"
-          >
-            Live session
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="uppercase text-[#2E6DB4] text-xs font-semibold tracking-widest text-center md:text-left"
+            >
+              Live session
+            </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-white font-bold text-4xl md:text-5xl mt-4 max-w-3xl mx-auto text-center leading-tight"
-          >
-            Learn how to earn recurring commission by referring businesses to BizOS.
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-white font-bold text-4xl md:text-5xl mt-4 text-center md:text-left leading-tight"
+            >
+              Learn how to earn recurring commission by referring businesses to BizOS.
+            </motion.h1>
 
-          <motion.p
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-[#94a3b8] text-lg mt-6 text-center md:text-left"
+              style={{ lineHeight: 1.8 }}
+            >
+              AI1team is hosting a one hour live session walking through the BizOS Partner Program. If you refer a business and they subscribe, you earn commission every month they stay on. This call explains exactly how it works and how to get started.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-white font-semibold text-lg mt-8 text-center md:text-left"
+            >
+              Date and time: {EVENT_DATE}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-[#94a3b8] text-sm mt-4 text-center md:text-left"
+            >
+              One hour. Hosted on Google Meet. Free to attend.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-8 text-center md:text-left"
+            >
+              <button
+                onClick={scrollToRegister}
+                className="bg-white text-[#1A3C6E] rounded-full px-8 py-4 font-bold text-base hover:bg-[#F0F6FF] transition-all mx-auto md:mx-0 block w-fit"
+              >
+                Reserve Your Spot Now
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Right column — image */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[#94a3b8] text-lg mt-6 max-w-2xl mx-auto text-center"
-            style={{ lineHeight: 1.8 }}
+            className="w-full"
           >
-            AI1team is hosting a one hour live session walking through the BizOS Partner Program. If you refer a business and they subscribe, you earn commission every month they stay on. This call explains exactly how it works and how to get started.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-white font-semibold text-lg mt-8 text-center"
-          >
-            Date and time: {EVENT_DATE}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-          >
-            <div className="flex gap-4 justify-center mt-6">
-              {[
-                { value: timeLeft.days, label: "Days" },
-                { value: timeLeft.hours, label: "Hours" },
-                { value: timeLeft.minutes, label: "Minutes" },
-                { value: timeLeft.seconds, label: "Seconds" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-xl px-5 py-4 text-center min-w-16"
-                  style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
-                >
-                  <p className="text-white font-bold text-4xl" style={{ fontVariantNumeric: "tabular-nums" }}>
-                    {item.value}
-                  </p>
-                  <p className="text-[#94a3b8] text-xs uppercase tracking-widest mt-1">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
+            <div className="rounded-2xl overflow-hidden shadow-2xl w-full aspect-[4/5] md:max-h-[600px]">
+              <Image
+                src="/images/partner_bizos.jpg"
+                alt="Two business partners shaking hands, representing the BizOS Partner Program"
+                width={600}
+                height={700}
+                className="w-full h-full object-cover rounded-2xl shadow-2xl"
+              />
             </div>
-            <p className="text-xs text-[#555577] text-center mt-4">
-              Countdown to the live session
-            </p>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-[#94a3b8] text-sm mt-2 text-center"
-          >
-            One hour. Hosted on Google Meet. Free to attend.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-8 text-center"
-          >
-            <button
-              onClick={scrollToRegister}
-              className="bg-white text-[#1A3C6E] rounded-full px-8 py-4 font-bold text-base hover:bg-[#F0F6FF] transition-all mx-auto block w-fit"
-            >
-              Reserve Your Spot Now
-            </button>
           </motion.div>
         </div>
       </section>
 
+      {/* Countdown divider */}
+      <section className="py-8 px-6" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-4xl mx-auto flex flex-col items-center">
+          <p className="uppercase text-[#2E6DB4] text-xs font-semibold tracking-widest mb-4">
+            Session starts in
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            {[
+              { value: timeLeft.days, label: "Days" },
+              { value: timeLeft.hours, label: "Hours" },
+              { value: timeLeft.minutes, label: "Minutes" },
+              { value: timeLeft.seconds, label: "Seconds" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl px-5 py-4 text-center min-w-16"
+                style={{ backgroundColor: "#F0F6FF", border: "1px solid rgba(26,60,110,0.12)" }}
+              >
+                <p className="text-[#1A3C6E] font-bold text-4xl" style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {item.value}
+                </p>
+                <p className="text-[#555577] text-xs uppercase tracking-widest mt-1">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-[#555577] text-xs text-center mt-4">
+            {EVENT_DATE}
+          </p>
+        </div>
+      </section>
+
       {/* Video placeholder section */}
-      <section className="py-20" style={{ backgroundColor: "#F0F6FF" }}>
+      <section className="py-20" style={{ background: "linear-gradient(180deg, #0f0f17 0%, #111827 100%)" }}>
         <div className="max-w-4xl mx-auto px-6">
           <p className="uppercase text-[#2E6DB4] text-xs font-bold tracking-widest text-center mb-4">
             Introduction
           </p>
-          <h2 className="text-[#1A1A2E] font-bold text-2xl text-center mb-3">
+          <h2 className="text-white font-bold text-2xl text-center mb-3">
             Watch this before the session.
           </h2>
-          <p className="text-[#555577] text-sm text-center mb-10">
+          <p className="text-[#94a3b8] text-sm text-center mb-10">
             A short introduction to the BizOS Partner Program and what the live session will cover.
           </p>
 
@@ -324,51 +328,74 @@ export default function BizOSPartnerEventPage() {
       </section>
 
       {/* Meet Your Hosts section */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section
+        className="py-24 px-6"
+        style={{ background: "linear-gradient(135deg, #F0F6FF 0%, #ffffff 50%, #F0F6FF 100%)" }}
+      >
+        <div className="max-w-5xl mx-auto">
           <p className="uppercase text-[#2E6DB4] text-xs font-bold tracking-widest text-center mb-4">
             Your hosts
           </p>
-          <h2 className="text-[#1A1A2E] font-bold text-3xl text-center mb-4">
-            Meet the people running this session.
+          <h2 className="text-[#1A1A2E] font-bold text-4xl text-center mb-4">
+            Meet the people behind this session.
           </h2>
-          <p className="text-[#555577] text-base text-center max-w-xl mx-auto mb-12" style={{ lineHeight: 1.8 }}>
-            This is a live, interactive session. You will be speaking directly with the people who built BizOS and run the partner program.
+          <p className="text-[#555577] text-base text-center max-w-xl mx-auto mb-16" style={{ lineHeight: 1.8 }}>
+            This is a live, interactive session. You will be speaking directly with the people who built BizOS and run the partner program day to day.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {hosts.map((host, index) => (
               <motion.div
                 key={host.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="rounded-2xl p-8 text-center shadow-sm"
-                style={{ backgroundColor: "#F0F6FF" }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col"
               >
-                <HostPhoto src={host.photo} alt={host.name} initials={host.initials} />
+                <div className="relative w-full h-80">
+                  <Image
+                    src={host.photo}
+                    alt={host.alt}
+                    fill
+                    style={{ objectFit: "cover", objectPosition: host.imagePosition }}
+                  />
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-24"
+                    style={{ background: "linear-gradient(to bottom, transparent 60%, white 100%)" }}
+                  />
+                </div>
 
-                <span
-                  className="text-white text-xs font-bold uppercase tracking-widest rounded-full px-4 py-1 inline-block mb-4"
-                  style={{ backgroundColor: host.badgeBg }}
-                >
-                  {host.badge}
-                </span>
+                <div className="px-8 pb-8 pt-2">
+                  <span
+                    className="text-white text-xs font-bold uppercase tracking-widest rounded-full px-4 py-1 inline-block mb-4"
+                    style={{ backgroundColor: host.badgeBg }}
+                  >
+                    {host.badge}
+                  </span>
 
-                <h3 className="text-[#1A1A2E] font-bold text-xl mb-1">{host.name}</h3>
-                <p className="text-[#2E6DB4] text-sm font-semibold mb-3">{host.title}</p>
-                <p className="text-[#555577] text-sm" style={{ lineHeight: 1.8 }}>
-                  {host.description}
-                </p>
+                  <h3 className="text-[#1A1A2E] font-bold text-3xl mb-1">{host.name}</h3>
+                  <p className="text-[#2E6DB4] font-semibold text-base mb-4">{host.title}</p>
+                  <div className="w-12 h-0.5 bg-[#2E6DB4] mb-4" />
+                  <p className="text-[#555577] text-base" style={{ lineHeight: 1.8 }}>
+                    {host.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          <button
+            onClick={scrollToRegister}
+            className="bg-[#2E6DB4] text-white rounded-full px-10 py-4 font-bold text-base hover:bg-[#1A3C6E] transition-all shadow-lg mt-12 mx-auto block w-fit"
+          >
+            Reserve Your Spot Now
+          </button>
         </div>
       </section>
 
       {/* Section 2 — What the program is */}
-      <section className="bg-white py-20 px-6">
+      <section className="py-20 px-6" style={{ background: "linear-gradient(180deg, #ffffff 0%, #F0F6FF 100%)" }}>
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-[#2E6DB4] mb-4">
             The partner program
@@ -429,7 +456,7 @@ export default function BizOSPartnerEventPage() {
       </section>
 
       {/* Section 3 — What the session covers */}
-      <section className="py-20 px-6" style={{ backgroundColor: "#F0F6FF" }}>
+      <section className="py-20 px-6" style={{ background: "linear-gradient(135deg, #F0F6FF 0%, #EBF4FF 100%)" }}>
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-[#2E6DB4] mb-4">
             What we will cover
@@ -453,7 +480,7 @@ export default function BizOSPartnerEventPage() {
       </section>
 
       {/* Section 4 — Registration form */}
-      <section id="register" className="bg-white py-20 px-6">
+      <section id="register" className="py-20 px-6" style={{ background: "linear-gradient(180deg, #ffffff 0%, #F0F6FF 100%)" }}>
         <div className="max-w-lg mx-auto">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-[#2E6DB4] mb-4">
             Register
@@ -545,7 +572,10 @@ export default function BizOSPartnerEventPage() {
       </section>
 
       {/* Section 5 — Final note */}
-      <section className="py-16 px-6 text-center" style={{ backgroundColor: "#1A3C6E" }}>
+      <section
+        className="py-16 px-6 text-center"
+        style={{ background: "linear-gradient(135deg, #1A3C6E 0%, #2E6DB4 60%, #1A3C6E 100%)" }}
+      >
         <h2 className="text-white font-bold text-3xl max-w-2xl mx-auto">
           This is a program for people willing to do the actual work of referring real businesses.
         </h2>
@@ -565,7 +595,10 @@ export default function BizOSPartnerEventPage() {
       {/* Earnings disclaimer */}
       <section
         className="py-10 px-6"
-        style={{ backgroundColor: "#0f0f17", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        style={{
+          background: "linear-gradient(180deg, #0f0f17 0%, #111827 100%)",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+        }}
       >
         <div className="max-w-3xl mx-auto text-center">
           <p className="uppercase text-[#555577] text-xs font-semibold tracking-widest mb-4">
