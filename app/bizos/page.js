@@ -351,8 +351,54 @@ const FAQItem = ({ question, answer }) => {
   );
 };
 
+const plans = {
+  foundation: {
+    monthly: {
+      price: "$29",
+      period: "per month",
+      link: "https://app.ai1team.com/signup?plan=foundation",
+      saving: null,
+    },
+    annual: {
+      price: "$290",
+      period: "per year",
+      link: "https://app.ai1team.com/signup?plan=foundation&interval=annual",
+      saving: "Save $58. Two months free.",
+    },
+  },
+  momentum: {
+    monthly: {
+      price: "$59",
+      period: "per month",
+      link: "https://app.ai1team.com/signup?plan=momentum",
+      saving: null,
+    },
+    annual: {
+      price: "$590",
+      period: "per year",
+      link: "https://app.ai1team.com/signup?plan=momentum&interval=annual",
+      saving: "Save $118. Two months free.",
+    },
+  },
+  apex: {
+    monthly: {
+      price: "$99",
+      period: "per month",
+      link: "https://app.ai1team.com/signup?plan=apex",
+      saving: null,
+    },
+    annual: {
+      price: "$990",
+      period: "per year",
+      link: "https://app.ai1team.com/signup?plan=apex&interval=annual",
+      saving: "Save $198. Two months free.",
+    },
+  },
+};
+
 export default function BizOSPage() {
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [billing, setBilling] = useState("monthly");
 
   useEffect(() => {
     document.title = "BizOS: Run Your Business | AI1team";
@@ -586,6 +632,48 @@ export default function BizOSPage() {
             Every plan includes a 14 day free trial. A card is required at signup.
           </motion.p>
 
+          <div className="flex items-center justify-center gap-4 mt-8 mb-12">
+            <span
+              onClick={() => setBilling("monthly")}
+              className="text-sm font-semibold cursor-pointer transition-colors"
+              style={{ color: billing === "monthly" ? "#1A1A2E" : "#94a3b8" }}
+            >
+              Monthly
+            </span>
+            <div
+              onClick={() => setBilling(billing === "monthly" ? "annual" : "monthly")}
+              className="w-14 h-7 rounded-full cursor-pointer transition-all duration-300"
+              style={{
+                backgroundColor: billing === "annual" ? "#2E6DB4" : "#d1d5db",
+                position: "relative",
+              }}
+            >
+              <div
+                className="w-5 h-5 bg-white rounded-full shadow-sm transition-all duration-300"
+                style={{
+                  position: "absolute",
+                  top: "2px",
+                  left: billing === "annual" ? "calc(100% - 22px)" : "2px",
+                }}
+              />
+            </div>
+            <span
+              onClick={() => setBilling("annual")}
+              className="text-sm font-semibold cursor-pointer transition-colors"
+              style={{ color: billing === "annual" ? "#1A1A2E" : "#94a3b8" }}
+            >
+              Annual
+            </span>
+            {billing === "annual" && (
+              <span
+                className="text-xs font-semibold rounded-full px-3 py-1 inline-block ml-2"
+                style={{ backgroundColor: "#F0F6FF", color: "#2E6DB4" }}
+              >
+                2 months free
+              </span>
+            )}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto items-start">
             {/* Foundation */}
             <motion.div
@@ -597,15 +685,30 @@ export default function BizOSPage() {
               style={{ border: "1px solid #e2e8f0" }}
             >
               <h3 className="font-bold text-[#1A1A2E] text-xl mb-2">Foundation</h3>
-              <p className="text-[#1A1A2E] text-3xl font-bold mb-3">
-                $29<span className="text-base font-medium text-[#555577]">/month</span>
-              </p>
-              <p className="text-[#555577] text-sm mb-6" style={{ lineHeight: 1.8 }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={billing}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <p className="text-[#1A1A2E] text-3xl font-bold mb-1">
+                    {plans.foundation[billing].price}
+                    <span className="text-base font-medium text-[#555577]"> {plans.foundation[billing].period}</span>
+                  </p>
+                  {billing === "annual" && (
+                    <p style={{ color: "#2E6DB4", fontSize: "13px", fontWeight: "600", marginTop: "4px" }}>
+                      {plans.foundation.annual.saving}
+                    </p>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+              <p className="text-[#555577] text-sm mb-6 mt-3" style={{ lineHeight: 1.8 }}>
                 For a solo operator or a small business that is getting organized for the first time.
               </p>
               <FeatureList items={foundationFeatures} />
               <a
-                href="https://app.ai1team.com/signup?plan=foundation"
+                href={plans.foundation[billing].link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 block text-center border border-[#2E6DB4] text-[#2E6DB4] rounded-full px-6 py-3 font-semibold w-full hover:bg-[#2E6DB4] hover:text-white transition-all"
@@ -627,15 +730,30 @@ export default function BizOSPage() {
                 Most Popular
               </span>
               <h3 className="font-bold text-[#1A1A2E] text-xl mb-2">Momentum</h3>
-              <p className="text-[#1A1A2E] text-3xl font-bold mb-3">
-                $59<span className="text-base font-medium text-[#555577]">/month</span>
-              </p>
-              <p className="text-[#555577] text-sm mb-6" style={{ lineHeight: 1.8 }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={billing}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <p className="text-[#1A1A2E] text-3xl font-bold mb-1">
+                    {plans.momentum[billing].price}
+                    <span className="text-base font-medium text-[#555577]"> {plans.momentum[billing].period}</span>
+                  </p>
+                  {billing === "annual" && (
+                    <p style={{ color: "#2E6DB4", fontSize: "13px", fontWeight: "600", marginTop: "4px" }}>
+                      {plans.momentum.annual.saving}
+                    </p>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+              <p className="text-[#555577] text-sm mb-6 mt-3" style={{ lineHeight: 1.8 }}>
                 For a business that is actively managing customers, staff, and cash flow and needs the tools to do it properly.
               </p>
               <FeatureList items={momentumFeatures} />
               <a
-                href="https://app.ai1team.com/signup?plan=momentum"
+                href={plans.momentum[billing].link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 block text-center bg-[#2E6DB4] text-white rounded-full px-6 py-3 font-bold w-full hover:bg-[#1A3C6E] transition-all"
@@ -654,15 +772,30 @@ export default function BizOSPage() {
               style={{ border: "1px solid rgba(46,109,180,0.3)" }}
             >
               <h3 className="font-bold text-white text-xl mb-2">Apex</h3>
-              <p className="text-white text-3xl font-bold mb-3">
-                $99<span className="text-base font-medium text-[#94a3b8]">/month</span>
-              </p>
-              <p className="text-[#94a3b8] text-sm mb-6" style={{ lineHeight: 1.8 }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={billing}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <p className="text-white text-3xl font-bold mb-1">
+                    {plans.apex[billing].price}
+                    <span className="text-base font-medium text-[#94a3b8]"> {plans.apex[billing].period}</span>
+                  </p>
+                  {billing === "annual" && (
+                    <p style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600", marginTop: "4px" }}>
+                      {plans.apex.annual.saving}
+                    </p>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+              <p className="text-[#94a3b8] text-sm mb-6 mt-3" style={{ lineHeight: 1.8 }}>
                 For a business that is ready to scale, apply for financing, or manage a larger team.
               </p>
               <FeatureList items={apexFeatures} textColor="#94a3b8" />
               <a
-                href="https://app.ai1team.com/signup?plan=apex"
+                href={plans.apex[billing].link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 block text-center bg-[#1A3C6E] text-white rounded-full px-6 py-3 font-semibold w-full hover:bg-[#2E6DB4] transition-all"
