@@ -8,7 +8,7 @@ export default function TawkChat() {
   const loadedRef = useRef(false)
 
   useEffect(() => {
-    if (pathname === '/bizos') {
+    if (pathname === '/bizos' || pathname === '/bizos-partner-event') {
       if (window.Tawk_API && typeof window.Tawk_API.hideWidget === 'function') {
         window.Tawk_API.hideWidget()
       }
