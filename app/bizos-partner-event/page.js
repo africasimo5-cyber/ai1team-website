@@ -270,24 +270,26 @@ export default function BizOSPartnerEventPage() {
 
       {/* Video placeholder section */}
       <section className="py-20" style={{ background: "linear-gradient(180deg, #0f0f17 0%, #111827 100%)" }}>
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-2xl mx-auto px-6">
           <p className="uppercase text-[#2E6DB4] text-xs font-bold tracking-widest text-center mb-4">
             Introduction
           </p>
           <h2 className="text-white font-bold text-2xl text-center mb-3">
             Watch this before the session.
           </h2>
-          <p className="text-[#94a3b8] text-sm text-center mb-10">
+          <p className="text-[#94a3b8] text-sm text-center mb-4">
             A short introduction to the BizOS Partner Program and what the live session will cover.
           </p>
 
           <div
             style={{
+              width: "100%",
               padding: "75% 0 0 0",
               position: "relative",
               borderRadius: "16px",
               overflow: "hidden",
               boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+              marginTop: "1rem",
             }}
           >
             <iframe
