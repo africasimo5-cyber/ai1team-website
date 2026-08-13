@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 
 // UPDATE THIS when the real date is confirmed
@@ -280,42 +281,29 @@ export default function BizOSPartnerEventPage() {
             A short introduction to the BizOS Partner Program and what the live session will cover.
           </p>
 
-          {/*
-            Note for Emmanuel: When the video is ready, replace this entire placeholder div with:
-
-            <div style={{position:'relative',paddingBottom:'56.25%',height:0,overflow:'hidden',borderRadius:'16px'}}>
-              <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-                style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',border:'none'}}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="BizOS Partner Program Introduction"
-              />
-            </div>
-          */}
           <div
-            className="relative w-full aspect-video rounded-2xl overflow-hidden"
-            style={{ backgroundColor: "#1a1a2e", border: "1px solid rgba(46,109,180,0.3)" }}
+            style={{
+              padding: "75% 0 0 0",
+              position: "relative",
+              borderRadius: "16px",
+              overflow: "hidden",
+              boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+            }}
           >
-            <div className="absolute inset-0 flex items-center justify-center flex-col">
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center"
-                style={{ border: "2px solid rgba(255,255,255,0.3)" }}
-              >
-                <div
-                  style={{
-                    width: 0,
-                    height: 0,
-                    borderTop: "10px solid transparent",
-                    borderBottom: "10px solid transparent",
-                    borderLeft: "18px solid white",
-                    marginLeft: "4px",
-                  }}
-                />
-              </div>
-              <p className="text-[#94a3b8] text-sm mt-4">Introduction video coming soon.</p>
-              <p className="text-[#555577] text-xs mt-1">We will update this page once the video is ready.</p>
-            </div>
+            <iframe
+              src="https://player.vimeo.com/video/1218005968?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+              title="BizOS Partner Program Introduction"
+            />
           </div>
 
           <button
@@ -609,6 +597,11 @@ export default function BizOSPartnerEventPage() {
           </p>
         </div>
       </section>
+
+      <Script
+        src="https://player.vimeo.com/api/player.js"
+        strategy="afterInteractive"
+      />
     </div>
   );
 }
