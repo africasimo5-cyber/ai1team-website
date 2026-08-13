@@ -6,10 +6,10 @@ import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 
 // UPDATE THIS when the real date is confirmed
-const EVENT_DATE = "Saturday 15 August 2026 at 6:00pm WAT";
+const EVENT_DATE = "Sunday 16 August 2026 at 6:00pm WAT";
 
 // UPDATE THIS to match the real event date and time exactly
-const COUNTDOWN_TARGET = new Date("2026-08-15T18:00:00");
+const COUNTDOWN_TARGET = new Date("2026-08-16T18:00:00");
 
 const scrollToRegister = () => {
   document.getElementById("register")?.scrollIntoView({ behavior: "smooth" });
@@ -270,7 +270,7 @@ export default function BizOSPartnerEventPage() {
 
       {/* Video placeholder section */}
       <section className="py-20" style={{ background: "linear-gradient(180deg, #0f0f17 0%, #111827 100%)" }}>
-        <div className="max-w-2xl mx-auto px-6">
+        <div className="max-w-3xl mx-auto px-6">
           <p className="uppercase text-[#2E6DB4] text-xs font-bold tracking-widest text-center mb-4">
             Introduction
           </p>
