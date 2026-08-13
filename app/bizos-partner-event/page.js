@@ -598,6 +598,65 @@ export default function BizOSPartnerEventPage() {
         </div>
       </section>
 
+      {/* Event footer */}
+      <footer
+        className="py-10 px-6"
+        style={{
+          backgroundColor: "#0f0f17",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+        }}
+      >
+        <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
+          <Image src="/crm_logo.png" alt="BizOS" height={32} width={120} className="h-8 w-auto mx-auto" />
+
+          <div className="flex gap-8 justify-center flex-wrap">
+            <span
+              onClick={scrollToRegister}
+              className="text-sm cursor-pointer transition-colors"
+              style={{ color: "#94a3b8" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#94a3b8")}
+            >
+              Register for the session
+            </span>
+            <a
+              href="/bizos"
+              target="_blank"
+              className="text-sm transition-colors"
+              style={{ color: "#94a3b8" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#94a3b8")}
+            >
+              Learn about BizOS
+            </a>
+            <a
+              href="https://help.ai1team.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm transition-colors"
+              style={{ color: "#94a3b8" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#94a3b8")}
+            >
+              Help center
+            </a>
+          </div>
+
+          <p className="text-xs text-center" style={{ color: "#555577" }}>
+            BizOS is a product of AI1team.
+          </p>
+          <a
+            href="mailto:hello@ai1team.com"
+            className="text-xs transition-colors"
+            style={{ color: "#555577" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#555577")}
+          >
+            hello@ai1team.com
+          </a>
+        </div>
+      </footer>
+
       <Script
         src="https://player.vimeo.com/api/player.js"
         strategy="afterInteractive"

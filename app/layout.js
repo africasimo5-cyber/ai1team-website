@@ -3,7 +3,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import Script from "next/script";
 import ConditionalNavbar from "@/components/ConditionalNavbar";
-import Footer from "@/components/Footer";
+import ConditionalFooter from "@/components/ConditionalFooter";
 import Loading from "@/components/Loading";
 import PageTransition from "@/components/PageTransition";
 import JsonLd from "@/components/JsonLd";
@@ -128,7 +128,7 @@ export default function RootLayout({ children }) {
             <PageTransition>{children}</PageTransition>
           </Suspense>
         </main>
-        <Footer />
+        <ConditionalFooter />
         <TawkChat />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NHBHK2R8P8"
