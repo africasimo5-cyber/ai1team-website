@@ -104,7 +104,7 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-const DEADLINE = new Date("2026-07-31T23:59:59Z").getTime();
+const DEADLINE = new Date("2026-08-31T23:59:59Z").getTime();
 
 const getTimeLeft = () => {
   const diff = DEADLINE - Date.now();
@@ -265,7 +265,7 @@ const AuditSection = () => {
 
         {/* Deadline text */}
         <p className="text-center text-amber-300 text-sm italic mb-12">
-          ⚡ Offer valid through July 31, 2026 — don&apos;t miss out
+          ⚡ Offer valid through August 31, 2026 — don&apos;t miss out
         </p>
 
         <motion.div
