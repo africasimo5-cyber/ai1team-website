@@ -66,11 +66,11 @@ const financialHealthBlock = {
 };
 
 const foundationFeatures = [
-  "200 contacts",
-  "50 invoices per month",
-  "3 pipelines, up to 5 stages each",
-  "Payroll and PAYE for up to 3 staff",
-  "3 automations",
+  "1,000 contacts",
+  "100 invoices per month",
+  "10 pipelines",
+  "Payroll and PAYE for up to 5 staff",
+  "5 automations",
   "Basic email sending via BizOS default address",
   "Full exportable tax summary report",
   "VAT report",
@@ -80,11 +80,11 @@ const foundationFeatures = [
 ];
 
 const momentumFeatures = [
-  "1,000 contacts",
-  "200 invoices per month",
+  "10,000 contacts",
+  "500 invoices per month",
   "Unlimited pipelines and custom stages",
   "Payroll and PAYE for up to 10 staff, with payslip email delivery",
-  "10 automations",
+  "20 automations",
   "Custom SMTP so email sends from your own business address",
   "Rich email composer with templates, attachments, and images",
   "Bulk contact actions including tagging, emailing, deleting, and adding to a pipeline",
