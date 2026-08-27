@@ -6,10 +6,10 @@ import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 
 // UPDATE THIS when the real date is confirmed
-const EVENT_DATE = "Sunday 23 August 2026 at 6:00pm WAT";
+const EVENT_DATE = "Sunday 6 September 2026 at 6:00pm WAT";
 
 // UPDATE THIS to match the real event date and time exactly
-const COUNTDOWN_TARGET = new Date("2026-08-23T18:00:00");
+const COUNTDOWN_TARGET = new Date("2026-09-06T18:00:00");
 
 const scrollToRegister = () => {
   document.getElementById("register")?.scrollIntoView({ behavior: "smooth" });
