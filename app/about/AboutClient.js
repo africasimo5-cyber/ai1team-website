@@ -269,7 +269,7 @@ const AboutClient = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-10 mx-auto">
             {[
               {
                 name: "Robert Mrak",
@@ -285,38 +285,39 @@ const AboutClient = () => {
                 imageSrc: "/images/emman_img.jpeg",
                 delay: 0.1,
               },
-              {
-                name: "Sophia Reyes",
-                role: "Senior Automation Specialist",
-                bio: "Sophia designs and deploys complete workflow automation systems for clients across ecommerce, real estate, and professional services, turning manual bottlenecks into automated pipelines.",
-                imageSrc: "/images/team_01.jpg",
-                imagePosition: "object-top",
-                delay: 0.2,
-              },
-              {
-                name: "Daniel Osei",
-                role: "AI Chatbot Engineer",
-                bio: "Daniel builds intelligent conversational agents that handle lead capture, customer support, and appointment booking around the clock, without human input.",
-                imageSrc: "/images/team_02.jpg",
-                imagePosition: "object-top",
-                delay: 0.3,
-              },
-              {
-                name: "Priya Nair",
-                role: "Automation Consultant & Onboarding Lead",
-                bio: "Priya guides new clients through the audit process, maps their current workflows, and translates business goals into actionable automation roadmaps.",
-                imageSrc: "/images/team_03.jpg",
-                imagePosition: "object-top",
-                delay: 0.4,
-              },
-              {
-                name: "Marcus Webb",
-                role: "Systems Integration Engineer",
-                bio: "Marcus specialises in connecting tools, CRMs, and data pipelines, ensuring every automation we deploy works seamlessly with the client's existing stack.",
-                imageSrc: "/images/team_04.jpg",
-                imagePosition: "object-top",
-                delay: 0.5,
-              },
+              // Temporarily hidden — keep for later re-adding:
+              // {
+              //   name: "Sophia Reyes",
+              //   role: "Senior Automation Specialist",
+              //   bio: "Sophia designs and deploys complete workflow automation systems for clients across ecommerce, real estate, and professional services, turning manual bottlenecks into automated pipelines.",
+              //   imageSrc: "/images/team_01.jpg",
+              //   imagePosition: "object-top",
+              //   delay: 0.2,
+              // },
+              // {
+              //   name: "Daniel Osei",
+              //   role: "AI Chatbot Engineer",
+              //   bio: "Daniel builds intelligent conversational agents that handle lead capture, customer support, and appointment booking around the clock, without human input.",
+              //   imageSrc: "/images/team_02.jpg",
+              //   imagePosition: "object-top",
+              //   delay: 0.3,
+              // },
+              // {
+              //   name: "Priya Nair",
+              //   role: "Automation Consultant & Onboarding Lead",
+              //   bio: "Priya guides new clients through the audit process, maps their current workflows, and translates business goals into actionable automation roadmaps.",
+              //   imageSrc: "/images/team_03.jpg",
+              //   imagePosition: "object-top",
+              //   delay: 0.4,
+              // },
+              // {
+              //   name: "Marcus Webb",
+              //   role: "Systems Integration Engineer",
+              //   bio: "Marcus specialises in connecting tools, CRMs, and data pipelines, ensuring every automation we deploy works seamlessly with the client's existing stack.",
+              //   imageSrc: "/images/team_04.jpg",
+              //   imagePosition: "object-top",
+              //   delay: 0.5,
+              // },
             ].map(({ delay, ...props }) => (
               <motion.div
                 key={props.name}
@@ -324,7 +325,7 @@ const AboutClient = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay }}
-                className="h-full"
+                className="h-full w-full sm:w-[340px]"
               >
                 <TeamCard {...props} />
               </motion.div>
