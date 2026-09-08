@@ -181,12 +181,12 @@ const AuditSection = () => {
         aria-hidden="true"
         opacity="0.15"
       >
-        <path d="M80 240 C78 210 76 180 78 160 C80 140 82 120 80 100" stroke="#f59e0b" strokeWidth="8" strokeLinecap="round"/>
-        <path d="M80 102 C60 80 30 65 5 60 C25 70 50 85 75 108" stroke="#f59e0b" strokeWidth="5" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.5"/>
-        <path d="M80 100 C75 70 80 40 90 20 C85 50 82 80 82 108" stroke="#f59e0b" strokeWidth="5" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.5"/>
-        <path d="M80 102 C105 80 130 70 155 68 C135 78 108 90 83 110" stroke="#f59e0b" strokeWidth="5" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.5"/>
-        <path d="M80 106 C55 100 25 108 0 120 C25 112 55 106 78 112" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.4"/>
-        <path d="M80 106 C108 104 135 115 158 128 C132 118 108 108 82 112" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.4"/>
+        <path d="M80 240 C78 210 76 180 78 160 C80 140 82 120 80 100" stroke="#f59e0b" strokeWidth="8" strokeLinecap="round" />
+        <path d="M80 102 C60 80 30 65 5 60 C25 70 50 85 75 108" stroke="#f59e0b" strokeWidth="5" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.5" />
+        <path d="M80 100 C75 70 80 40 90 20 C85 50 82 80 82 108" stroke="#f59e0b" strokeWidth="5" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.5" />
+        <path d="M80 102 C105 80 130 70 155 68 C135 78 108 90 83 110" stroke="#f59e0b" strokeWidth="5" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.5" />
+        <path d="M80 106 C55 100 25 108 0 120 C25 112 55 106 78 112" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.4" />
+        <path d="M80 106 C108 104 135 115 158 128 C132 118 108 108 82 112" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" fill="#f59e0b" fillOpacity="0.4" />
       </svg>
 
       {/* Decorative sun rays — top-right */}
@@ -198,15 +198,15 @@ const AuditSection = () => {
         aria-hidden="true"
         opacity="0.13"
       >
-        <circle cx="150" cy="50" r="28" fill="#f59e0b"/>
-        <line x1="150" y1="5"   x2="150" y2="16"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="181" y1="19"  x2="173" y2="27"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="195" y1="50"  x2="184" y2="50"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="181" y1="81"  x2="173" y2="73"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="150" y1="95"  x2="150" y2="84"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="119" y1="81"  x2="127" y2="73"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="105" y1="50"  x2="116" y2="50"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
-        <line x1="119" y1="19"  x2="127" y2="27"  stroke="#f59e0b" strokeWidth="4" strokeLinecap="round"/>
+        <circle cx="150" cy="50" r="28" fill="#f59e0b" />
+        <line x1="150" y1="5" x2="150" y2="16" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        <line x1="181" y1="19" x2="173" y2="27" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        <line x1="195" y1="50" x2="184" y2="50" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        <line x1="181" y1="81" x2="173" y2="73" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        <line x1="150" y1="95" x2="150" y2="84" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        <line x1="119" y1="81" x2="127" y2="73" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        <line x1="105" y1="50" x2="116" y2="50" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+        <line x1="119" y1="19" x2="127" y2="27" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
       </svg>
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -236,8 +236,8 @@ const AuditSection = () => {
           {timeLeft === null ? null : timeLeft ? (
             <div className="flex items-start gap-2 md:gap-3">
               {[
-                { value: timeLeft.days,    label: "Days"    },
-                { value: timeLeft.hours,   label: "Hours"   },
+                { value: timeLeft.days, label: "Days" },
+                { value: timeLeft.hours, label: "Hours" },
                 { value: timeLeft.minutes, label: "Minutes" },
                 { value: timeLeft.seconds, label: "Seconds" },
               ].map(({ value, label }, i) => (
@@ -265,7 +265,7 @@ const AuditSection = () => {
 
         {/* Deadline text */}
         <p className="text-center text-amber-300 text-sm italic mb-12">
-          ⚡ Offer valid through August 31, 2026 — don&apos;t miss out
+          ⚡ Offer valid through September 30th, 2026 — don&apos;t miss out
         </p>
 
         <motion.div
@@ -279,17 +279,16 @@ const AuditSection = () => {
             <motion.div
               key={plan.name}
               variants={cardVariants}
-              className={`relative flex flex-col p-8 rounded-2xl ${
-                plan.enterprise
+              className={`relative flex flex-col p-8 rounded-2xl ${plan.enterprise
                   ? "bg-[#0f0f17] border border-[rgba(46,109,180,0.3)] hover:shadow-[0_0_40px_rgba(46,109,180,0.25)] transition-shadow duration-300"
                   : plan.popular && plan.summerOffer
-                  ? "bg-white scale-105 z-10 border-2 border-amber-400 shadow-[0_0_35px_rgba(251,191,36,0.5)]"
-                  : plan.summerOffer
-                  ? "bg-white border-2 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]"
-                  : plan.popular
-                  ? "bg-white scale-105 z-10 shadow-xl border-2 border-[#2E6DB4]"
-                  : "bg-white border border-gray-100 shadow-md"
-              }`}
+                    ? "bg-white scale-105 z-10 border-2 border-amber-400 shadow-[0_0_35px_rgba(251,191,36,0.5)]"
+                    : plan.summerOffer
+                      ? "bg-white border-2 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]"
+                      : plan.popular
+                        ? "bg-white scale-105 z-10 shadow-xl border-2 border-[#2E6DB4]"
+                        : "bg-white border border-gray-100 shadow-md"
+                }`}
             >
               {/* Glow orb inside enterprise card */}
               {plan.enterprise && (
@@ -311,11 +310,10 @@ const AuditSection = () => {
               {/* Most Popular badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className={`text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg whitespace-nowrap ${
-                    plan.summerOffer
+                  <span className={`text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg whitespace-nowrap ${plan.summerOffer
                       ? "bg-gradient-to-r from-amber-500 to-orange-500"
                       : "bg-[#2E6DB4]"
-                  }`}>
+                    }`}>
                     Most Popular
                   </span>
                 </div>
@@ -331,9 +329,8 @@ const AuditSection = () => {
               )}
 
               <div className="relative mb-6 mt-2">
-                <h3 className={`font-bold text-xl mb-1 ${
-                  plan.enterprise ? "text-white" : "text-[#1A3C6E]"
-                }`}>
+                <h3 className={`font-bold text-xl mb-1 ${plan.enterprise ? "text-white" : "text-[#1A3C6E]"
+                  }`}>
                   {plan.name}
                 </h3>
 
@@ -368,21 +365,18 @@ const AuditSection = () => {
                   </div>
                 )}
 
-                <p className={`text-sm ${
-                  plan.enterprise ? "text-[#94a3b8]" : "text-[#555577]"
-                }`}>
+                <p className={`text-sm ${plan.enterprise ? "text-[#94a3b8]" : "text-[#555577]"
+                  }`}>
                   Best for: {plan.bestFor}
                 </p>
               </div>
 
               <ul className="relative flex-1 space-y-3 mb-4">
                 {plan.includes.map((item) => (
-                  <li key={item} className={`flex items-start gap-2 text-sm ${
-                    plan.enterprise ? "text-[#cbd5e1]" : "text-[#1A1A2E]"
-                  }`}>
-                    <span className={`mt-0.5 font-bold ${
-                      plan.summerOffer ? "text-amber-500" : "text-[#2E6DB4]"
-                    }`}>•</span>
+                  <li key={item} className={`flex items-start gap-2 text-sm ${plan.enterprise ? "text-[#cbd5e1]" : "text-[#1A1A2E]"
+                    }`}>
+                    <span className={`mt-0.5 font-bold ${plan.summerOffer ? "text-amber-500" : "text-[#2E6DB4]"
+                      }`}>•</span>
                     {item}
                   </li>
                 ))}
@@ -390,18 +384,16 @@ const AuditSection = () => {
 
               {/* Credit line */}
               {plan.credit && (
-                <div className={`relative flex items-start gap-2 rounded-lg px-3 py-2 mt-3 mb-6 ${
-                  plan.summerOffer
+                <div className={`relative flex items-start gap-2 rounded-lg px-3 py-2 mt-3 mb-6 ${plan.summerOffer
                     ? "bg-amber-50 border-l-[3px] border-amber-400"
                     : "bg-[#F0F6FF] border-l-[3px] border-[#2E6DB4]"
-                }`}>
+                  }`}>
                   <FaCircleCheck
                     className={`mt-0.5 shrink-0 ${plan.summerOffer ? "text-amber-500" : "text-[#2E6DB4]"}`}
                     size={13}
                   />
-                  <span className={`text-xs font-semibold leading-snug ${
-                    plan.summerOffer ? "text-amber-700" : "text-[#1A3C6E]"
-                  }`}>
+                  <span className={`text-xs font-semibold leading-snug ${plan.summerOffer ? "text-amber-700" : "text-[#1A3C6E]"
+                    }`}>
                     {plan.credit}
                   </span>
                 </div>
@@ -415,11 +407,10 @@ const AuditSection = () => {
                   data-cal-link={plan.calLink}
                   data-cal-namespace={plan.calNamespace}
                   data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                  className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${
-                    plan.enterprise
+                  className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${plan.enterprise
                       ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
                       : "bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white shadow-md shadow-orange-200"
-                  }`}
+                    }`}
                 >
                   {plan.button}
                 </button>
