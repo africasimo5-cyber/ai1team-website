@@ -3,7 +3,8 @@
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 
-const HIDDEN_ON = ["/bizos", "/bizos-partner-event"];
+// /bizos-old draws its own navbar; the current /bizos page uses this one.
+const HIDDEN_ON = ["/bizos-old", "/bizos-partner-event"];
 
 export default function ConditionalNavbar() {
   const pathname = usePathname();
