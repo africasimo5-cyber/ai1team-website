@@ -104,11 +104,13 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-const DEADLINE = new Date("2026-10-01T23:59:59Z").getTime();
+// End of 31 October 2026, Lagos time (WAT, UTC+1).
+const DEADLINE = new Date("2026-10-31T23:59:59+01:00").getTime();
 
 const getTimeLeft = () => {
   const diff = DEADLINE - Date.now();
-  if (diff <= 0) return null;
+  // false (not null) so the "Offer Expired" message shows; null means not loaded yet.
+  if (diff <= 0) return false;
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -265,7 +267,7 @@ const AuditSection = () => {
 
         {/* Deadline text */}
         <p className="text-center text-amber-300 text-sm italic mb-12">
-          ⚡ Offer valid through September 30th, 2026 — don&apos;t miss out
+          ⚡ Offer valid through October 31st, 2026 — don&apos;t miss out
         </p>
 
         <motion.div
@@ -280,14 +282,14 @@ const AuditSection = () => {
               key={plan.name}
               variants={cardVariants}
               className={`relative flex flex-col p-8 rounded-2xl ${plan.enterprise
-                  ? "bg-[#0f0f17] border border-[rgba(46,109,180,0.3)] hover:shadow-[0_0_40px_rgba(46,109,180,0.25)] transition-shadow duration-300"
-                  : plan.popular && plan.summerOffer
-                    ? "bg-white scale-105 z-10 border-2 border-amber-400 shadow-[0_0_35px_rgba(251,191,36,0.5)]"
-                    : plan.summerOffer
-                      ? "bg-white border-2 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]"
-                      : plan.popular
-                        ? "bg-white scale-105 z-10 shadow-xl border-2 border-[#2E6DB4]"
-                        : "bg-white border border-gray-100 shadow-md"
+                ? "bg-[#0f0f17] border border-[rgba(46,109,180,0.3)] hover:shadow-[0_0_40px_rgba(46,109,180,0.25)] transition-shadow duration-300"
+                : plan.popular && plan.summerOffer
+                  ? "bg-white scale-105 z-10 border-2 border-amber-400 shadow-[0_0_35px_rgba(251,191,36,0.5)]"
+                  : plan.summerOffer
+                    ? "bg-white border-2 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]"
+                    : plan.popular
+                      ? "bg-white scale-105 z-10 shadow-xl border-2 border-[#2E6DB4]"
+                      : "bg-white border border-gray-100 shadow-md"
                 }`}
             >
               {/* Glow orb inside enterprise card */}
@@ -311,8 +313,8 @@ const AuditSection = () => {
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className={`text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg whitespace-nowrap ${plan.summerOffer
-                      ? "bg-gradient-to-r from-amber-500 to-orange-500"
-                      : "bg-[#2E6DB4]"
+                    ? "bg-gradient-to-r from-amber-500 to-orange-500"
+                    : "bg-[#2E6DB4]"
                     }`}>
                     Most Popular
                   </span>
@@ -385,8 +387,8 @@ const AuditSection = () => {
               {/* Credit line */}
               {plan.credit && (
                 <div className={`relative flex items-start gap-2 rounded-lg px-3 py-2 mt-3 mb-6 ${plan.summerOffer
-                    ? "bg-amber-50 border-l-[3px] border-amber-400"
-                    : "bg-[#F0F6FF] border-l-[3px] border-[#2E6DB4]"
+                  ? "bg-amber-50 border-l-[3px] border-amber-400"
+                  : "bg-[#F0F6FF] border-l-[3px] border-[#2E6DB4]"
                   }`}>
                   <FaCircleCheck
                     className={`mt-0.5 shrink-0 ${plan.summerOffer ? "text-amber-500" : "text-[#2E6DB4]"}`}
@@ -408,8 +410,8 @@ const AuditSection = () => {
                   data-cal-namespace={plan.calNamespace}
                   data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                   className={`relative w-full font-semibold py-3 rounded-full transition-all duration-200 text-center block ${plan.enterprise
-                      ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
-                      : "bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white shadow-md shadow-orange-200"
+                    ? "bg-[#1A3C6E] hover:bg-[#2E6DB4] text-white"
+                    : "bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white shadow-md shadow-orange-200"
                     }`}
                 >
                   {plan.button}
