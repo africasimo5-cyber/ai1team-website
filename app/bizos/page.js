@@ -1589,7 +1589,9 @@ const globalStyles = `
 
   .bv2-plan-price {
     font-family: var(--mono);
-    font-size: 2.6rem;
+    /* sized for Naira prices up to ₦1,050,000 without overflowing the card */
+    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    white-space: nowrap;
     font-weight: 700;
     color: var(--ink);
     letter-spacing: -0.03em;
@@ -1894,7 +1896,7 @@ const problemPoints = [
   },
   {
     title: "Tax compliance feels impossible",
-    text: "VAT, withholding tax, PAYE. They are legal obligations. Tracking them manually across bank alerts and spreadsheets means errors are almost guaranteed.",
+    text: "VAT, withholding tax, PAYE. They are legal obligations. Tracking them manually across bank alerts and spreadsheets makes errors easy to make.",
   },
   {
     title: "Clients owe you and you cannot track it",
@@ -1956,8 +1958,8 @@ const demoData = {
   ],
   tax: [
     { num: "01", label: "VAT tracked", value: "₦1,088 output VAT on this sale", meta: "Nigeria Tax Act 2025. 7.5% applied.", done: false },
-    { num: "02", label: "WHT recorded", value: "Withholding tax noted where applicable", meta: "Correct rate applied per transaction type", done: false },
-    { num: "03", label: "PAYE calculated", value: "5 staff. Correct deductions this month.", meta: "Payslips generated and ready to send", done: false },
+    { num: "02", label: "WHT recorded", value: "Withholding tax noted where applicable", meta: "Rate applied per transaction type", done: false },
+    { num: "03", label: "PAYE calculated", value: "5 staff. Deductions calculated this month.", meta: "Payslips generated and ready to send", done: false },
     { num: "04", label: "Report ready", value: "Full tax summary available to export", meta: "PDF or CSV. Any time.", done: true },
   ],
   payroll: [
@@ -1970,10 +1972,10 @@ const demoData = {
 };
 
 const demoMetrics = [
-  { label: "Collected today", value: "₦717,000", change: "↑ 49%", up: true },
+  { label: "Collected today", value: "₦717,000", change: "Up 49%", up: true },
   { label: "Orders today", value: "18", change: "1 waiting for payment", up: null },
   { label: "Invoices this month", value: "47", change: "All tracked in one place", up: null },
-  { label: "Overdue", value: "3", change: "▲ Oldest 21 days", up: false },
+  { label: "Overdue", value: "3", change: "Oldest 21 days", up: false },
 ];
 
 // Matches the "Overdue: 3" metric. INV-039 is the overdue invoice in the hero.
@@ -1987,7 +1989,7 @@ const howSteps = [
   {
     num: "01",
     title: "Connect your accounts",
-    text: "Link your bank, set up your product catalogue, and add your staff. BizOS starts building your financial picture from day one.",
+    text: "Add your bank details to your invoices, set up your product catalogue, and add your staff. BizOS starts building your financial picture from day one.",
   },
   {
     num: "02",
@@ -2016,41 +2018,45 @@ const compareWith = [
   "VAT, WHT, and PAYE tracked automatically as you operate",
   "A bank ready financial report ready to export at any time",
   "Stock levels updated with every sale automatically",
-  "Payroll and payslips generated with correct tax deductions",
+  "Payroll and payslips generated with PAYE deductions calculated for you",
 ];
 
 const plans = {
   foundation: {
-    monthly: { price: "$29", period: "per month", link: "https://app.ai1team.com/signup?plan=foundation", saving: null },
-    annual: { price: "$290", period: "per year", link: "https://app.ai1team.com/signup?plan=foundation&interval=annual", saving: "Save $58. Two months free." },
+    monthly: { price: "₦25,000", period: "per month", link: "https://app.ai1team.com/signup?plan=foundation", saving: null },
+    annual: { price: "₦250,000", period: "per year", link: "https://app.ai1team.com/signup?plan=foundation&interval=annual", saving: "Two months free." },
   },
   momentum: {
-    monthly: { price: "$59", period: "per month", link: "https://app.ai1team.com/signup?plan=momentum", saving: null },
-    annual: { price: "$590", period: "per year", link: "https://app.ai1team.com/signup?plan=momentum&interval=annual", saving: "Save $118. Two months free." },
+    monthly: { price: "₦52,000", period: "per month", link: "https://app.ai1team.com/signup?plan=momentum", saving: null },
+    annual: { price: "₦520,000", period: "per year", link: "https://app.ai1team.com/signup?plan=momentum&interval=annual", saving: "Two months free." },
   },
   apex: {
-    monthly: { price: "$99", period: "per month", link: "https://app.ai1team.com/signup?plan=apex", saving: null },
-    annual: { price: "$990", period: "per year", link: "https://app.ai1team.com/signup?plan=apex&interval=annual", saving: "Save $198. Two months free." },
+    monthly: { price: "₦105,000", period: "per month", link: "https://app.ai1team.com/signup?plan=apex", saving: null },
+    annual: { price: "₦1,050,000", period: "per year", link: "https://app.ai1team.com/signup?plan=apex&interval=annual", saving: "Two months free." },
   },
 };
 
+// How customers pay for a plan. Shown under the plan cards and in the FAQ.
+const paymentNote =
+  "Pay by card, which renews automatically, or by bank transfer, USSD or bank account. Payments are processed by Paystack.";
+
 const foundationFeatures = [
   "1,000 contacts",
-  "100 invoices per month",
+  "100 invoices a month",
   "10 pipelines",
   "Payroll and PAYE for up to 5 staff",
   "5 automations",
-  "Basic email via BizOS address",
+  "Up to 30 products with inventory",
+  "Email sent from the BizOS address, no custom SMTP",
   "Full exportable tax summary",
   "VAT report",
-  "Up to 30 products with inventory",
   "Standard invoice branding",
   "Community and email support",
 ];
 
 const momentumFeatures = [
   "10,000 contacts",
-  "500 invoices per month",
+  "500 invoices a month",
   "Unlimited pipelines and stages",
   "Payroll and PAYE for up to 10 staff with payslip email delivery",
   "20 automations",
@@ -2070,37 +2076,38 @@ const apexFeatures = [
   "Unlimited pipelines and stages",
   "Unlimited staff members",
   "Unlimited automations",
+  "Unlimited products with stock tracking",
   "Everything in Momentum",
   "Creditworthiness Dashboard",
   "Financial Health Score",
-  "Bank ready report as PDF, CSV, and shareable link",
+  "Bank ready financial reports as PDF, CSV, and shareable link",
   "Advanced automation conditions and branching",
   "White glove onboarding with priority support",
 ];
 
 const testimonials = [
   {
-    quote: "AI1team completely transformed our lead generation. We went from manual follow-ups to a fully automated pipeline in under 2 weeks. The results were immediate.",
-    name: "James Carter",
-    role: "CEO, NovaTech Solutions",
+    quote: "Before BizOS I was chasing payments with WhatsApp messages. Now I send an invoice and the customer pays from the link. I know exactly who has paid and who has not, without calling anyone.",
+    name: "Tunde Adeyemi",
+    role: "Owner, Adeyemi Electrical Supplies, Lagos",
   },
   {
-    quote: "The workflow automations they built saved us 20 plus hours every single week. The ROI was obvious within the first month of going live.",
-    name: "Sarah Mitchell",
-    role: "Operations Manager, ScaleUp Co.",
+    quote: "My accountant used to spend two days every month pulling numbers together. With BizOS that report is ready when I need it. The bank ready version has made conversations with our lender much easier.",
+    name: "Chisom Okafor",
+    role: "Director, Okafor Building Materials, Enugu",
   },
   {
-    quote: "The audit alone was worth it. They mapped out exactly where we were losing time and money. The roadmap was clear, actionable, and spot on.",
-    name: "Lena Hoffmann",
-    role: "COO, Struktur Digital GmbH",
+    quote: "I was losing stock without knowing it. BizOS showed me exactly what was moving, what was sitting, and where the money was going. I have not had a stock surprise since.",
+    name: "Bisi Adeleke",
+    role: "Founder, Adeleke Pharmacy, Ibadan",
   },
 ];
 
-// The trial no longer needs a card, so the card answers follow that.
+// No card is needed for the trial; at the end the customer chooses a plan and pays.
 const faqs = [
   {
     q: "Do I need a card to start the free trial?",
-    a: "No. You can start your 14 day free trial without entering a card. You only add a card when the trial ends and you choose to keep using BizOS.",
+    a: "No. You can start your 14 day free trial without a card. The trial gives you full access, including Apex features, and nothing is charged during it.",
   },
   {
     q: "Is BizOS built for Nigerian tax rules specifically?",
@@ -2112,15 +2119,19 @@ const faqs = [
   },
   {
     q: "Can I upgrade or downgrade my plan later?",
-    a: "Yes. You can change your plan at any time from inside the app. Changes take effect at the start of your next billing cycle.",
+    a: "Yes. To change your plan, write to hello@ai1team.com and we will help you move to the plan that fits.",
   },
   {
     q: "What happens when my trial ends?",
-    a: "When your 14 day trial ends, you add a card to continue on the plan you signed up for. You are not charged anything during the trial.",
+    a: "When your 14 day trial ends, you choose a plan and pay for it to keep using BizOS. Nothing is charged during the trial.",
+  },
+  {
+    q: "How do I pay for BizOS?",
+    a: paymentNote,
   },
   {
     q: "Is there a help center or documentation?",
-    a: "Yes. The BizOS help center is at help.ai1team.com. It covers every feature in plain language.",
+    a: "Yes. The BizOS help center is at help.ai1team.com. It explains each feature in plain language. For anything else, write to hello@ai1team.com.",
   },
 ];
 
@@ -2184,7 +2195,7 @@ export default function BizOSPage() {
   }, []);
 
   useEffect(() => {
-    document.title = "BizOS — Run Your Business | AI1team";
+    document.title = "BizOS | Run Your Business | AI1team";
 
     let ctx;
     let cancelled = false;
@@ -2441,7 +2452,7 @@ export default function BizOSPage() {
                   ))}
                 </div>
                 <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.45)" }}>
-                  14 day free trial. No charge until it ends.
+                  14 day free trial. No card needed to start.
                 </span>
               </div>
             </div>
@@ -2511,7 +2522,7 @@ export default function BizOSPage() {
                       >
                         ₦0
                       </div>
-                      <div className="bv2-stat-change bv2-stat-up">↑ 49%</div>
+                      <div className="bv2-stat-change bv2-stat-up">Up 49%</div>
                     </div>
 
                     <div className="bv2-stat-card">
@@ -3253,7 +3264,7 @@ export default function BizOSPage() {
                 Built for businesses like yours
               </div>
               <h2 className="bv2-headline bv2-headline-white" data-split style={{ marginBottom: "1rem" }}>
-                Nigerian businesses that know their numbers grow faster.
+                Know your numbers. Run your business with confidence.
               </h2>
               <p className="bv2-subtext" style={{ color: "rgba(255,255,255,0.45)", margin: "0 auto" }}>
                 BizOS was built with Nigerian business owners in mind. The tax rules, the currency, the
@@ -3291,7 +3302,7 @@ export default function BizOSPage() {
                 Three plans. One for where you are now, one for where you are going.
               </h2>
               <p className="bv2-subtext" style={{ margin: "0 auto 2rem" }}>
-                Every plan includes a 14 day free trial. No card is needed at signup.
+                Every plan starts with a 14 day free trial with full access, including Apex features. No card is needed to start, and nothing is charged during the trial.
               </p>
             </div>
 
@@ -3381,7 +3392,7 @@ export default function BizOSPage() {
                     ))}
                   </ul>
                   {billing === "annual" && (
-                    <div className="bv2-plan-credit">Save $118. Two months free when billed annually.</div>
+                    <div className="bv2-plan-credit">Two months free when billed annually.</div>
                   )}
                   <a
                     href={plans.momentum[billing].link}
@@ -3418,7 +3429,7 @@ export default function BizOSPage() {
                   </ul>
                   {billing === "annual" && (
                     <div className="bv2-plan-credit bv2-plan-credit-dark">
-                      Save $198. Two months free when billed annually.
+                      Two months free when billed annually.
                     </div>
                   )}
                   <a
@@ -3438,6 +3449,10 @@ export default function BizOSPage() {
                 </div>
               </div>
             </div>
+
+            <p className="bv2-subtext" style={{ margin: "2.5rem auto 0", textAlign: "center", fontSize: "0.9rem" }}>
+              {paymentNote}
+            </p>
           </div>
         </section>
 
